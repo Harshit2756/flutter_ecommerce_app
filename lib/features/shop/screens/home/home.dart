@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/utils/constants/colors.dart';
-
+import 'package:t_store/utils/constants/image_strings.dart';
+import '../../../../common/widgets/layout/grid_layout.dart';
+import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../utils/constants/colors.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/sizes.dart';
 import 'widget/home_appbar.dart';
 import 'widget/home_categories.dart';
+import 'widget/promo_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// -- Primary Header Container
-            HPrimaryHeaderContainer(
+            const HPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// -- Appbar
                   HHomeAppBar(),
-
                   SizedBox(height: HSizes.spaceBtwSections),
 
                   /// -- Search Bar
                   HSearchContainer(text: 'Search in store'),
-
                   SizedBox(height: HSizes.spaceBtwSections),
 
                   /// -- Categories
@@ -49,6 +50,29 @@ class HomeScreen extends StatelessWidget {
                         HHomeCategories(),
                       ],
                     ),
+                  ),
+                ],
+              ),
+            ),
+
+            /// -- Body
+            Padding(
+              padding: const EdgeInsets.all(HSizes.defaultSpace),
+              child: Column(
+                children: [
+                  const HPromoSlider(
+                    banners: [
+                      HImages.promoBanner1,
+                      HImages.promoBanner2,
+                      HImages.promoBanner3,
+                    ],
+                  ),
+                  const SizedBox(height: HSizes.spaceBtwSections),
+                  HGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return const HProductCardVertical();
+                    },
                   ),
                 ],
               ),
