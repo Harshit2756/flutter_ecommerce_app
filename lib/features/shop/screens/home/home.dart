@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
-import '../../../../common/widgets/layout/grid_layout.dart';
-import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
-import '../../../../utils/constants/colors.dart';
+
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../common/widgets/layout/grid_layout.dart';
+import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import 'widget/home_appbar.dart';
 import 'widget/home_categories.dart';
@@ -60,12 +61,19 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(HSizes.defaultSpace),
               child: Column(
                 children: [
+                  /// -- Promo Slider
                   const HPromoSlider(
                     banners: [
                       HImages.promoBanner1,
                       HImages.promoBanner2,
                       HImages.promoBanner3,
                     ],
+                  ),
+
+                  /// -- Section Heading
+                  HSectionHeading(
+                    title: 'Popular Categories',
+                    onButtonTap: () {},
                   ),
                   const SizedBox(height: HSizes.spaceBtwSections),
                   HGridLayout(

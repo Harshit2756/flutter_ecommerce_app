@@ -7,7 +7,7 @@ class HCartCounterIcon extends StatelessWidget {
   const HCartCounterIcon({
     super.key,
     required this.onCartTap,
-    required this.iconColor,
+    this.iconColor = HColors.black,
   });
 
   final VoidCallback onCartTap;

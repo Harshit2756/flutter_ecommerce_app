@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 
 class HRoundImage extends StatelessWidget {
@@ -16,14 +15,14 @@ class HRoundImage extends StatelessWidget {
     this.isNetworkImage = false,
     this.applyImageRadius = true,
     this.borderRadius = HSizes.md,
-    this.backgroundColor = HColors.light,
+    this.backgroundColor,
   });
 
   final BoxFit fit;
   final String imageUrl;
   final BoxBorder? border;
   final double borderRadius;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final double? width, height;
   final VoidCallback? onPressed;
   final EdgeInsetsGeometry? padding;

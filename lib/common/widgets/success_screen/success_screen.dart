@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/common/styles/spcaing_styles.dart';
 
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../../../utils/helpers/helper_functions.dart';
+import '../../styles/spcaing_styles.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen(

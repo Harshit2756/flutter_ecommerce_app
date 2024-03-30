@@ -20,7 +20,7 @@ class HProductPriceText extends StatelessWidget {
       style: isLarge
           ? Theme.of(context).textTheme.headlineMedium!.apply(
               decoration: lineThrough ? TextDecoration.lineThrough : null)
-          : Theme.of(context).textTheme.labelMedium!.apply(
+          : Theme.of(context).textTheme.titleLarge!.apply(
               decoration: lineThrough ? TextDecoration.lineThrough : null),
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,

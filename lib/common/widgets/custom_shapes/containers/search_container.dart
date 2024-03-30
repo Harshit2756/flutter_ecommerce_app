@@ -9,17 +9,19 @@ import '../../../../utils/helpers/helper_functions.dart';
 class HSearchContainer extends StatelessWidget {
   const HSearchContainer({
     super.key,
-    required this.text,
-    this.icon = Iconsax.search_normal,
-    this.showbackground = true,
-    this.showBorder = true,
     this.onTap,
+    required this.text,
+    this.showBorder = true,
+    this.showbackground = true,
+    this.icon = Iconsax.search_normal,
+    this.padding = const EdgeInsets.symmetric(horizontal: HSizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showbackground, showBorder;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class HSearchContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: HSizes.defaultSpace),
+        padding: padding,
         child: Container(
           width: HDeviceUtils.getScreenWidth(context),
           padding: const EdgeInsets.all(HSizes.md),
@@ -38,15 +40,11 @@ class HSearchContainer extends StatelessWidget {
                     : HColors.light
                 : HColors.transparent,
             borderRadius: BorderRadius.circular(HSizes.cardRadiusLg),
-            border: showBorder
-                ? Border.all(
-                    color: HColors.grey,
-                  )
-                : null,
+            border: showBorder ? Border.all(color: HColors.grey) : null,
           ),
           child: Row(
             children: [
-              Icon(icon, color: HColors.darkGrey),
+              Icon(icon, color: isDark ? HColors.darkGrey : Colors.grey),
               const SizedBox(width: HSizes.spaceBtwItems),
               Text(text, style: Theme.of(context).textTheme.bodySmall),
             ],

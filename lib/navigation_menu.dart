@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/features/shop/screens/Strore/strore.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 import 'features/shop/screens/home/home.dart';
@@ -42,10 +43,9 @@ class NavigationController extends GetxController {
 
   final List<Widget> pages = [
     const HomeScreen(),
-    // StoreScreen(),
+    const StoreScreen(),
     // WishlistScreen(),
     // ProfileScreen(),
-    Container(color: Colors.blue),
     Container(color: Colors.red),
     Container(color: Colors.yellow),
   ];

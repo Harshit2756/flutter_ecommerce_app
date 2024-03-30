@@ -4,10 +4,10 @@ class HSectionHeading extends StatelessWidget {
   const HSectionHeading({
     super.key,
     this.textColor,
-    required this.title,
-    this.buttonTitle = 'View All',
     this.onButtonTap,
+    required this.title,
     this.showActionButton = true,
+    this.buttonTitle = 'View All',
   });
   final Color? textColor;
   final bool showActionButton;
@@ -17,6 +17,7 @@ class HSectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
