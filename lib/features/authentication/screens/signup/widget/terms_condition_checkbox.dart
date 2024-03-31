@@ -4,8 +4,8 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
-class TTermsAndConditionCheckbox extends StatelessWidget {
-  const TTermsAndConditionCheckbox({
+class HTermsAndConditionCheckbox extends StatelessWidget {
+  const HTermsAndConditionCheckbox({
     super.key,
   });
 

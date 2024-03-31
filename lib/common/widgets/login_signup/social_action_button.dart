@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 
-class CircularSocialButton extends StatelessWidget {
-  const CircularSocialButton({
+class HCircularSocialButton extends StatelessWidget {
+  const HCircularSocialButton({
     super.key,
     required this.onpressed,
     required this.image,

@@ -7,8 +7,8 @@ import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import 'terms_condition_checkbox.dart';
 
-class TSignupForm extends StatelessWidget {
-  const TSignupForm({
+class HSignupForm extends StatelessWidget {
+  const HSignupForm({
     super.key,
   });
 
@@ -85,7 +85,7 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(height: HSizes.spaceBtwInputFields),
 
           /// Terms and Conditions checkbox
-          const TTermsAndConditionCheckbox(),
+          const HTermsAndConditionCheckbox(),
 
           const SizedBox(height: HSizes.spaceBtwSections),
 

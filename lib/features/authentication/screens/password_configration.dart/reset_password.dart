@@ -27,7 +27,7 @@ class ResetPassword extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHieght * 2,
+          padding: HSpacingStyle.paddingWithAppBarHieght * 2,
           child: Column(
             children: [
               /// Image

@@ -70,7 +70,7 @@ class HProductCardVertical extends StatelessWidget {
                     right: 0,
                     top: 0,
                     child:
-                        TcircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                        HCircularIcon(icon: Iconsax.heart5, color: Colors.red),
                   ),
                 ],
               ),

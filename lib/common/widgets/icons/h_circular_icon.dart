@@ -4,8 +4,8 @@ import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
-class TcircularIcon extends StatelessWidget {
-  const TcircularIcon({
+class HCircularIcon extends StatelessWidget {
+  const HCircularIcon({
     super.key,
     this.width,
     this.height,

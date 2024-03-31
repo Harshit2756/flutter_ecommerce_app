@@ -16,6 +16,7 @@ class HPrimaryHeaderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return HCurvedEdgeWidget(
       child: Container(
+        // height: 400,
         color: HColors.primary,
         padding: const EdgeInsets.only(bottom: 0),
         child: Stack(

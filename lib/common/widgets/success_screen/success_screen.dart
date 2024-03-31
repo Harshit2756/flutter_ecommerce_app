@@ -5,8 +5,8 @@ import '../../../utils/constants/text_strings.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import '../../styles/spcaing_styles.dart';
 
-class SuccessScreen extends StatelessWidget {
-  const SuccessScreen(
+class HSuccessScreen extends StatelessWidget {
+  const HSuccessScreen(
       {super.key,
       required this.image,
       required this.title,
@@ -21,7 +21,7 @@ class SuccessScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHieght * 2,
+          padding: HSpacingStyle.paddingWithAppBarHieght * 2,
           child: Column(
             children: [
               /// Image

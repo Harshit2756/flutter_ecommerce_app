@@ -4,8 +4,8 @@ import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import 'social_action_button.dart';
 
-class TSocialButtons extends StatelessWidget {
-  const TSocialButtons({
+class HSocialButtons extends StatelessWidget {
+  const HSocialButtons({
     super.key,
   });
 
@@ -14,12 +14,12 @@ class TSocialButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CircularSocialButton(
+        HCircularSocialButton(
           onpressed: () {},
           image: HImages.google,
         ),
         const SizedBox(width: HSizes.spaceBtwItems),
-        CircularSocialButton(
+        HCircularSocialButton(
           onpressed: () {},
           image: HImages.facebook,
         ),

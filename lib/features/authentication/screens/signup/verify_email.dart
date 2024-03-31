@@ -68,7 +68,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Get.to(
-                      SuccessScreen(
+                      HSuccessScreen(
                         image: HImages.staticSuccessIllustration,
                         title: HTexts.yourAccountCreatedTitle,
                         subtitile: HTexts.yourAccountCreatedSubTitle,

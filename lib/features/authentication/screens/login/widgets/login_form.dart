@@ -7,8 +7,8 @@ import '../../../../../utils/constants/text_strings.dart';
 import '../../password_configration.dart/forget_password.dart';
 import '../../signup/signup.dart';
 
-class TLoginForm extends StatelessWidget {
-  const TLoginForm({
+class HLoginForm extends StatelessWidget {
+  const HLoginForm({
     super.key,
   });
 
