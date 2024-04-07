@@ -30,7 +30,7 @@ dependencies:
   get_storage: ^2.1.1
 
   # Product Specific
-  readmore: ^2.2.0
+  readmore: ^3.0.0
   carousel_slider: ^4.2.1
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2

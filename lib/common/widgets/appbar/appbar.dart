@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:t_store/utils/helpers/helper_functions.dart';
 
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/device/device_utility.dart';
@@ -29,11 +30,17 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
+                color: HHelperFunctions.isDarkMode(context)
+                    ? Colors.white
+                    : Colors.black,
                 icon: const Icon(Iconsax.arrow_left),
                 onPressed: () => Get.back(),
               )
             : leadingIcon != null
                 ? IconButton(
+                    color: HHelperFunctions.isDarkMode(context)
+                        ? Colors.white
+                        : Colors.black,
                     icon: Icon(leadingIcon),
                     onPressed: onLeadingTap,
                   )

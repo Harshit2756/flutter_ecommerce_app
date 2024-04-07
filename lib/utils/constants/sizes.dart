@@ -30,8 +30,13 @@ class HSizes {
   static const double imageThumbSize = 80.0;
 
   // Default spacing between sections
+  /// 24
   static const double defaultSpace = 24.0;
+
+  /// 16
   static const double spaceBtwItems = 16.0;
+
+  /// 32
   static const double spaceBtwSections = 32.0;
 
   // Border radius

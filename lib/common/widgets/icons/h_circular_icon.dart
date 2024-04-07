@@ -35,13 +35,7 @@ class HCircularIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(
-        icon: Icon(
-          icon,
-          size: iconSize,
-          color: color,
-        ),
-        onPressed: onPressed,
-      ),
+          icon: Icon(icon, size: iconSize, color: color), onPressed: onPressed),
     );
   }
 }

@@ -19,7 +19,7 @@ class HProductTitleText extends StatelessWidget {
       title,
       style: smallSize
           ? Theme.of(context).textTheme.labelLarge
-          : Theme.of(context).textTheme.labelSmall,
+          : Theme.of(context).textTheme.titleSmall,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       textAlign: textAlign,
