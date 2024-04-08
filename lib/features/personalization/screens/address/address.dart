@@ -1,10 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:t_store/common/widgets/appbar/appbar.dart';
+import 'package:t_store/features/personalization/screens/address/add_new_address.dart';
+import 'package:t_store/utils/constants/colors.dart';
+import 'package:t_store/utils/constants/sizes.dart';
 
-class AddressScreen extends StatelessWidget {
-  const AddressScreen({super.key});
+import 'widget/single_address.dart';
+
+class UserAddressScreen extends StatelessWidget {
+  const UserAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: HColors.primary,
+        onPressed: () => Get.to(() => const AddNewAddressScreen()),
+        child: const Icon(Iconsax.add, color: HColors.white),
+      ),
+      appBar: HAppBar(
+        title: Text(
+          'Addressess',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        showBackArrow: true,
+      ),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(HSizes.defaultSpace),
+          child: Column(
+            children: [
+              SizedBox(height: HSizes.spaceBtwItems),
+              HSingleAddress(selectedAddress: true),
+              HSingleAddress(selectedAddress: false),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
