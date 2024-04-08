@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
+import '../product_reviews/product_reviews.dart';
 import 'widget/bottom_add_to_cart_widget.dart';
 import 'widget/product_attributes.dart';
 import 'widget/product_detail_image_slider.dart';
@@ -79,12 +81,14 @@ class ProductDetailsScreen extends StatelessWidget {
                   const Divider(),
                   const SizedBox(height: HSizes.spaceBtwItems),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const HSectionHeading(
                           title: 'Reviews(199)', showActionButton: false),
                       IconButton(
                           icon: const Icon(Iconsax.arrow_right_3, size: 18),
-                          onPressed: () {}),
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewsScreen())),
                     ],
                   ),
                   const SizedBox(height: HSizes.spaceBtwSections),
