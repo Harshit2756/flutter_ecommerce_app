@@ -71,8 +71,8 @@ class HProductCardVertical extends StatelessWidget {
                   const Positioned(
                     right: 0,
                     top: 0,
-                    child:
-                        HCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                    child: HCircularIcon(
+                        icon: Iconsax.heart5, iconColor: Colors.red),
                   ),
                 ],
               ),

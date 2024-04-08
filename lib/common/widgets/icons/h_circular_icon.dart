@@ -11,14 +11,14 @@ class HCircularIcon extends StatelessWidget {
     this.height,
     this.iconSize = HSizes.lg,
     required this.icon,
-    this.color,
+    this.iconColor,
     this.backgroundColor,
     this.onPressed,
   });
 
   final double? width, height, iconSize;
   final IconData icon;
-  final Color? color, backgroundColor;
+  final Color? iconColor, backgroundColor;
   final VoidCallback? onPressed;
 
   @override
@@ -35,7 +35,8 @@ class HCircularIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(
-          icon: Icon(icon, size: iconSize, color: color), onPressed: onPressed),
+          icon: Icon(icon, size: iconSize, color: iconColor),
+          onPressed: onPressed),
     );
   }
 }

@@ -72,7 +72,7 @@ class HProductImageSlider extends StatelessWidget {
               actions: [
                 HCircularIcon(
                   icon: Iconsax.heart5,
-                  color: Colors.red,
+                  iconColor: Colors.red,
                 ),
               ],
             ),

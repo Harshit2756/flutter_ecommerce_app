@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../features/personalization/screens/cart/cart.dart';
 import '../../../utils/constants/colors.dart';
 
 class HCartCounterIcon extends StatelessWidget {
   const HCartCounterIcon({
     super.key,
-    required this.onCartTap,
     this.iconColor = HColors.black,
   });
 
-  final VoidCallback onCartTap;
   final Color iconColor;
 
   @override
@@ -22,7 +22,7 @@ class HCartCounterIcon extends StatelessWidget {
             Iconsax.shopping_bag,
             color: iconColor,
           ),
-          onPressed: onCartTap,
+          onPressed: () => Get.to(() => const CartScreen()),
         ),
         Positioned(
           right: 0,

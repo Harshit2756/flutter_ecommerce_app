@@ -60,7 +60,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       title: 'Description', showActionButton: false),
                   const SizedBox(height: HSizes.spaceBtwItems),
                   const ReadMoreText(
-                    'ReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreText adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum',
+'ReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreText adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
