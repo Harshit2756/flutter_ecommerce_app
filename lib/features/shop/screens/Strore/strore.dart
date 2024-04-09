@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../brand/all_brands.dart';
 import 'widget/category_tab.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/colors.dart';
@@ -57,7 +59,9 @@ class StoreScreen extends StatelessWidget {
 
                       /// -- Freatured Brands Heading
                       HSectionHeading(
-                          title: 'Feature Brands', onButtonTap: () {}),
+                          title: 'Feature Brands',
+                          onButtonTap: () =>
+                              Get.to(() => const AllBrandsScreen())),
                       const SizedBox(height: HSizes.spaceBtwItems / 1.5),
 
                       /// -- Brands List

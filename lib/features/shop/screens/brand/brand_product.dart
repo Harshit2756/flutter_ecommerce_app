@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
+import '../../../../common/widgets/brands/h_brand_card.dart';
 import '../../../../common/widgets/products/sortable/sortable_products.dart';
 import '../../../../utils/constants/sizes.dart';
 
-class AllProducts extends StatelessWidget {
-  const AllProducts({super.key});
+class BrandProducts extends StatelessWidget {
+  const BrandProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,14 @@ class AllProducts extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(HSizes.defaultSpace),
-          child: HSortableProducts(),
+          child: Column(
+            children: [
+              /// Brand Details
+              HBrandCard(showBorder: true),
+              SizedBox(height: HSizes.spaceBtwSections),
+              HSortableProducts(),
+            ],
+          ),
         ),
       ),
     );

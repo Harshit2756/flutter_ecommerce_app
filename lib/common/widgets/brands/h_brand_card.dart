@@ -35,7 +35,7 @@ class HBrandCard extends StatelessWidget {
             /// -- Icon
             Flexible(
               child: HCircularImage(
-                image: HImages.clothIcon,
+                image: HImages.nikeLogo,
                 backgroundColor: HColors.transparent,
                 overlayColor: isDark ? HColors.white : HColors.black,
               ),
