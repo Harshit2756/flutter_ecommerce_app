@@ -34,6 +34,7 @@ class HProductCardVertical extends StatelessWidget {
           color: isDark ? HColors.darkerGrey : HColors.white,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Thumbnail , wishList Button , Discount Tag
             HRoundedContainer(
@@ -76,7 +77,7 @@ class HProductCardVertical extends StatelessWidget {
 
             /// -- Details
             const Padding(
-              padding: EdgeInsets.only(left: HSizes.sm),
+              padding: EdgeInsets.only(left: HSizes.sm, top: HSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:t_store/features/shop/screens/all_products/all_products.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
@@ -73,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                   /// -- Section Heading
                   HSectionHeading(
                     title: 'Popular Categories',
-                    onButtonTap: () {},
+                    onButtonTap: () => Get.to(() => const AllProducts()),
                   ),
                   const SizedBox(height: HSizes.spaceBtwSections),
                   HGridLayout(
