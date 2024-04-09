@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: HSizes.spaceBtwSections),
                   HGridLayout(
                     itemCount: 4,
-                    itemBuilder: (context, index) {
+                    itemBuilder: (_, index) {
                       return const HProductCardVertical();
                     },
                   ),

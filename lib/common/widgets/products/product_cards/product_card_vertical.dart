@@ -44,9 +44,7 @@ class HProductCardVertical extends StatelessWidget {
                 /// -- Thumbnail Image
                 children: [
                   const HRoundImage(
-                    imageUrl: HImages.productImage1,
-                    applyImageRadius: true,
-                  ),
+                      imageUrl: HImages.productImage1, applyImageRadius: true),
 
                   /// -- Discount Tag
                   Positioned(
@@ -55,9 +53,7 @@ class HProductCardVertical extends StatelessWidget {
                       radius: HSizes.sm,
                       backgroundColor: HColors.secondary.withOpacity(0.8),
                       padding: const EdgeInsets.symmetric(
-                        horizontal: HSizes.sm,
-                        vertical: HSizes.xs,
-                      ),
+                          horizontal: HSizes.sm, vertical: HSizes.xs),
                       child: Text(
                         '20% OFF',
                         style: Theme.of(context).textTheme.labelLarge!.apply(
@@ -86,15 +82,11 @@ class HProductCardVertical extends StatelessWidget {
                 children: [
                   /// -- Product Name
                   HProductTitleText(
-                    title: 'Green Nike Air Max',
-                    smallSize: true,
-                  ),
+                      title: 'Green Nike Air Max', smallSize: true),
                   SizedBox(height: HSizes.spaceBtwItems / 2),
 
                   /// -- Brand Name
-                  HBrandTileWithVerifiedIcon(
-                    title: 'Nike',
-                  ),
+                  HBrandTileWithVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),
@@ -123,10 +115,7 @@ class HProductCardVertical extends StatelessWidget {
                     width: HSizes.iconLg * 1.2,
                     height: HSizes.iconLg * 1.2,
                     child: Center(
-                      child: Icon(
-                        Iconsax.add,
-                        color: HColors.white,
-                      ),
+                      child: Icon(Iconsax.add, color: HColors.white),
                     ),
                   ),
                 ),
