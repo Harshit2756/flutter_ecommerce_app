@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:t_store/bindings/general_bindings.dart';
+import 'package:t_store/utils/constants/colors.dart';
 
-import 'features/authentication/screens/onboarding/onboarding_screen.dart';
 import 'utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -11,13 +12,14 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
+      initialBinding: GeneralBindings(),
       home: const Scaffold(
+        backgroundColor: HColors.primary,
         body: Center(
-          child: OnBoardingScreen(),
+          child: CircularProgressIndicator(color: Colors.white),
         ),
       ),
     );

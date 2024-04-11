@@ -1,13 +1,15 @@
 import 'package:intl/intl.dart';
 
-class TFormatter {
+class HFormatter {
   static String formatDate(DateTime? date) {
     date ??= DateTime.now();
-    return DateFormat('dd-MMM-yyyy').format(date); // Customize the date format as needed
+    return DateFormat('dd-MMM-yyyy')
+        .format(date); // Customize the date format as needed
   }
 
   static String formatCurrency(double amount) {
-    return NumberFormat.currency(locale: 'en_US', symbol: '\$').format(amount); // Customize the currency locale and symbol as needed
+    return NumberFormat.currency(locale: 'en_US', symbol: '\$')
+        .format(amount); // Customize the currency locale and symbol as needed
   }
 
   static String formatPhoneNumber(String phoneNumber) {
@@ -20,7 +22,6 @@ class TFormatter {
     // Add more custom phone number formatting logic for different formats if needed.
     return phoneNumber;
   }
-
 
   // Not fully tested.
   static String internationalFormatPhoneNumber(String phoneNumber) {
@@ -53,10 +54,6 @@ class TFormatter {
 
     return formattedNumber.toString();
   }
-
-
-
-
 }
 
 

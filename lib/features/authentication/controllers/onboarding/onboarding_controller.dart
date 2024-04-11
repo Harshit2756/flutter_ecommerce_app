@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../screens/login/login.dart';
+import '../../screens/login/login.dart';
 
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance {
