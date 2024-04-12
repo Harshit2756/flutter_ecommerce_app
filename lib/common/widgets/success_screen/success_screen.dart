@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
@@ -25,26 +26,19 @@ class HSuccessScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Image
-              Image.asset(
-                image,
-                width: HHelperFunctions.screenWidth() * 0.6,
-              ),
+              Lottie.asset(image, width: HHelperFunctions.screenWidth() * 0.6),
               const SizedBox(height: HSizes.spaceBtwSections),
 
               /// Title & Subtitle
-              Text(
-                title,
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.center,
-              ),
+              Text(title,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center),
 
               const SizedBox(height: HSizes.spaceBtwItems),
 
-              Text(
-                subtitile,
-                style: Theme.of(context).textTheme.labelMedium,
-                textAlign: TextAlign.center,
-              ),
+              Text(subtitile,
+                  style: Theme.of(context).textTheme.labelMedium,
+                  textAlign: TextAlign.center),
 
               const SizedBox(height: HSizes.spaceBtwSections),
 

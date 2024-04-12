@@ -59,37 +59,37 @@ class HImages {
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
   // -- Lottie Animations
-  static const String ordercompleteCarDelivery =
+  static const String docerAnimation =
+      "assets/images/animations/141594-animation-of-docer.json";
+  static const String ordercompletedAnimation =
       "assets/images/animations/order-complete-car-delivery-animation.json";
   static const String loaderAnimation =
       "assets/images/animations/loader-animation.json";
-  static const String ladyAddingProductInCart =
+  static const String cartAnimation =
       "assets/images/animations/lady-adding-product-in-cart-animation.json";
   static const String cloudUploadingAnimation =
       "assets/images/animations/cloud-uploading-animation.json";
-  static const String animationOfDocer =
-      "assets/images/images/animations/141594-animation-of-docer.json";
-  static const String loadingJuggle =
+  static const String loadingJuggleAnimation =
       "assets/images/animations/141397-loading-juggle.json";
-  static const String pencilDrawing =
+  static const String pencilDrawingAnimation =
       "assets/images/animations/140429-pencil-drawing.json";
-  static const String carRides =
+  static const String carAnimation =
       "assets/images/animations/136491-animation-lottie-car-rides.json";
-  static const String paymentSuccessful =
+  static const String paymentSuccessfulAnimation =
       "assets/images/animations/120978-payment-successful.json";
-  static const String paperPlane =
+  static const String paperPlaneAnimation =
       "assets/images/animations/110052-paper-plane.json";
-  // static const String thankYou =
-  //     "assets/images/animations/104368-thank-you.json";
-  static const String packagingInProgress =
+  static const String thankYouAnimation =
+      "assets/images/animations/104368-thank-you.json";
+  static const String packagingAnimantion =
       "assets/images/animations/98783-packaging-in-progress.json";
-  static const String searching =
+  static const String searchingAnimation =
       "assets/images/animations/72785-searching.json";
-  static const String checkRegister =
+  static const String successfullyRegisterAnimation =
       "assets/images/animations/72462-check-register.json";
-  static const String securityIconTransparent =
+  static const String securityAnimation =
       "assets/images/animations/67263-security-icon-transparent.json";
-  static const String emptyFile =
+  static const String emptyAnimation =
       "assets/images/animations/53207-empty-file.json";
 
   // -- OnBoarding Texts

@@ -32,7 +32,7 @@ class SignupController extends GetxController {
       // Start Loading
       HFullScreenLoader.openLoadingDialog(
         'We are Processing your information....',
-        HImages.loaderAnimation,
+        HImages.docerAnimation,
       );
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -87,7 +87,7 @@ class SignupController extends GetxController {
       );
 
       // Move to Verify Email Screen
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: emailController.text.trim()));
     } catch (e) {
       HFullScreenLoader.stopLoading();
 

@@ -53,7 +53,7 @@ class HAnimationLoaderWidget extends StatelessWidget {
                 onPressed: onActionTap,
                 style: OutlinedButton.styleFrom(backgroundColor: HColors.dark),
                 child: Text(
-                  actionText!,
+                  actionText ?? 'Retry',
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
