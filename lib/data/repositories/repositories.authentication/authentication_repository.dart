@@ -137,6 +137,22 @@ class AuthenticatorRepository extends GetxController {
   }
 
   /// [EmailAuthenticaton] - Forgot Password
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw HFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw HFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const HFormatException();
+    } on PlatformException catch (e) {
+      throw HPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again later';
+    }
+  }
+
 
   /* ---------------------------- Federated identity & social sign-in ---------------------------- */
 

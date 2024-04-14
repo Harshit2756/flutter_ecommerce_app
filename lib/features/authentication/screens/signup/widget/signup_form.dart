@@ -27,6 +27,7 @@ class HSignupForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   autofocus: true,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   keyboardType: TextInputType.name,
                   inputFormatters: controller.nameFormatter,
                   focusNode: controller.firstNameFocusNode,
@@ -50,6 +51,7 @@ class HSignupForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   expands: false,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   focusNode: controller.lastNameFocusNode,
                   inputFormatters: controller.nameFormatter,
                   keyboardType: TextInputType.name,
@@ -72,6 +74,7 @@ class HSignupForm extends StatelessWidget {
 
           /// Username
           TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             inputFormatters: controller.userNameFormatter,
             keyboardType: TextInputType.name,
             focusNode: controller.userNameFocusNode,
@@ -92,6 +95,7 @@ class HSignupForm extends StatelessWidget {
 
           /// Email
           TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.emailAddress,
             inputFormatters: controller.emailFormatter,
             focusNode: controller.emailFocusNode,
@@ -111,10 +115,11 @@ class HSignupForm extends StatelessWidget {
 
           /// Phone Number
           TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.phone,
             focusNode: controller.phoneNumberFocusNode,
             inputFormatters: controller.phoneNumberFormatter,
-            validator: (value) => HValidator.validatePhoneNumber(value),
+            validator: HValidator.validatePhoneNumber,
             controller: controller.phoneNumberController,
             decoration: const InputDecoration(
               labelText: HTexts.phoneNo,
@@ -131,9 +136,10 @@ class HSignupForm extends StatelessWidget {
           /// Password
           Obx(
             () => TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               focusNode: controller.passwordFocusNode,
               inputFormatters: controller.passwordFormatter,
-              validator: (value) => HValidator.validatePassword(value),
+              validator: HValidator.validatePassword,
               controller: controller.passwordController,
               obscureText: controller.hidePassword.value,
               decoration: InputDecoration(
