@@ -55,7 +55,26 @@ class AuthenticatorRepository extends GetxController {
 
   /* ---------------------------- Email & Password Sign In ---------------------------- */
 
-  /// [EmailAuthenticaton] - Sign In
+  /// [EmailAuthenticaton] - Login In
+  Future<UserCredential> loginWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on FirebaseAuthException catch (e) {
+      throw HFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw HFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const HFormatException();
+    } on PlatformException catch (e) {
+      throw HPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong, Please try again later';
+    }
+  }
 
   /// [EmailAuthenticaton] - Register
   Future<UserCredential> registerWithEmailAndPassword(
@@ -121,7 +140,7 @@ class AuthenticatorRepository extends GetxController {
   /* ---------------------------- Federated identity & social sign-in ---------------------------- */
 
   /// [GoogleAuthentication] -GOOGLE
-  
+
   /// [FacebookAuthentication] -FACEBOOK
 
   /* ---------------------------- ./end Federated identity & social sign-in ---------------------------- */

@@ -16,6 +16,7 @@ class HTermsAndConditionCheckbox extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = SignupController.instance;
     final isDark = HHelperFunctions.isDarkMode(context);
+
     return Row(
       children: [
         SizedBox(

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:t_store/data/repositories/repositories.authentication/authentication_repository.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
@@ -25,6 +26,31 @@ class SignupController extends GetxController {
   final passwordController = TextEditingController();
   final phoneNumberController = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+
+  /// Focus Nodes
+  final firstNameFocusNode = FocusNode();
+  final lastNameFocusNode = FocusNode();
+  final userNameFocusNode = FocusNode();
+  final emailFocusNode = FocusNode();
+  final phoneNumberFocusNode = FocusNode();
+  final passwordFocusNode = FocusNode();
+
+  /// Formaters
+  final List<FilteringTextInputFormatter> nameFormatter = [
+    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z]'))
+  ];
+  final List<FilteringTextInputFormatter> emailFormatter = [
+    FilteringTextInputFormatter.deny(RegExp(r'[ ]'))
+  ];
+  final List<FilteringTextInputFormatter> passwordFormatter = [
+    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9.!@#\$&*~]'))
+  ];
+  final List<FilteringTextInputFormatter> phoneNumberFormatter = [
+    FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+  ];
+  final List<FilteringTextInputFormatter> userNameFormatter = [
+    FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9]'))
+  ];
 
   /// -- SignUP
   void signUp() async {

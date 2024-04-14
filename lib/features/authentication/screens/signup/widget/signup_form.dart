@@ -26,6 +26,10 @@ class HSignupForm extends StatelessWidget {
               /// First Name
               Expanded(
                 child: TextFormField(
+                  autofocus: true,
+                  keyboardType: TextInputType.name,
+                  inputFormatters: controller.nameFormatter,
+                  focusNode: controller.firstNameFocusNode,
                   expands: false,
                   validator: (value) =>
                       HValidator.validateEmptyText(HTexts.firstName, value),
@@ -34,6 +38,10 @@ class HSignupForm extends StatelessWidget {
                     labelText: HTexts.firstName,
                     prefixIcon: Icon(Iconsax.user),
                   ),
+                  onFieldSubmitted: (value) {
+                    controller.firstNameFocusNode.unfocus();
+                    controller.lastNameFocusNode.requestFocus();
+                  },
                 ),
               ),
               const SizedBox(width: HSizes.spaceBtwInputFields),
@@ -42,6 +50,9 @@ class HSignupForm extends StatelessWidget {
               Expanded(
                 child: TextFormField(
                   expands: false,
+                  focusNode: controller.lastNameFocusNode,
+                  inputFormatters: controller.nameFormatter,
+                  keyboardType: TextInputType.name,
                   validator: (value) =>
                       HValidator.validateEmptyText(HTexts.lastName, value),
                   controller: controller.lastNameController,
@@ -49,6 +60,10 @@ class HSignupForm extends StatelessWidget {
                     labelText: HTexts.lastName,
                     prefixIcon: Icon(Iconsax.user),
                   ),
+                  onFieldSubmitted: (value) {
+                    controller.lastNameFocusNode.unfocus();
+                    controller.userNameFocusNode.requestFocus();
+                  },
                 ),
               ),
             ],
@@ -57,6 +72,9 @@ class HSignupForm extends StatelessWidget {
 
           /// Username
           TextFormField(
+            inputFormatters: controller.userNameFormatter,
+            keyboardType: TextInputType.name,
+            focusNode: controller.userNameFocusNode,
             validator: (value) =>
                 HValidator.validateEmptyText(HTexts.username, value),
             controller: controller.userNameController,
@@ -64,30 +82,48 @@ class HSignupForm extends StatelessWidget {
               labelText: HTexts.username,
               prefixIcon: Icon(Iconsax.user_edit),
             ),
+            onFieldSubmitted: (value) {
+              controller.userNameFocusNode.unfocus();
+              controller.emailFocusNode.requestFocus();
+            },
           ),
 
           const SizedBox(height: HSizes.spaceBtwInputFields),
 
           /// Email
           TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            inputFormatters: controller.emailFormatter,
+            focusNode: controller.emailFocusNode,
             validator: HValidator.validateEmail,
             controller: controller.emailController,
             decoration: const InputDecoration(
               labelText: HTexts.email,
               prefixIcon: Icon(Iconsax.direct),
             ),
+            onFieldSubmitted: (value) {
+              controller.emailFocusNode.unfocus();
+              controller.phoneNumberFocusNode.requestFocus();
+            },
           ),
 
           const SizedBox(height: HSizes.spaceBtwInputFields),
 
           /// Phone Number
           TextFormField(
+            keyboardType: TextInputType.phone,
+            focusNode: controller.phoneNumberFocusNode,
+            inputFormatters: controller.phoneNumberFormatter,
             validator: (value) => HValidator.validatePhoneNumber(value),
             controller: controller.phoneNumberController,
             decoration: const InputDecoration(
               labelText: HTexts.phoneNo,
               prefixIcon: Icon(Iconsax.call),
             ),
+            onFieldSubmitted: (value) {
+              controller.phoneNumberFocusNode.unfocus();
+              controller.passwordFocusNode.requestFocus();
+            },
           ),
 
           const SizedBox(height: HSizes.spaceBtwInputFields),
@@ -95,6 +131,8 @@ class HSignupForm extends StatelessWidget {
           /// Password
           Obx(
             () => TextFormField(
+              focusNode: controller.passwordFocusNode,
+              inputFormatters: controller.passwordFormatter,
               validator: (value) => HValidator.validatePassword(value),
               controller: controller.passwordController,
               obscureText: controller.hidePassword.value,
@@ -111,6 +149,9 @@ class HSignupForm extends StatelessWidget {
                   ),
                 ),
               ),
+              onFieldSubmitted: (value) {
+                controller.passwordFocusNode.unfocus();
+              },
             ),
           ),
 
