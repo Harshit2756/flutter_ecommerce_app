@@ -22,7 +22,7 @@ class NetworkManager extends GetxController {
   }
 
   /// Update the connection status based on changes in connectivity and show a relevant popup for no internet connection.
-  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
+  void _updateConnectionStatus(ConnectivityResult result) async {
     _connectionStatus.value = result;
     if (result == ConnectivityResult.none) {
       HLoarders.waringSnackBar(title: 'No Internet Connection');
