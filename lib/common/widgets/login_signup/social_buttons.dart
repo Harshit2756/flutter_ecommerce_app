@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../features/authentication/controllers/login/login_controller.dart';
 import '../../../utils/constants/image_strings.dart';
-import '../../../utils/constants/sizes.dart';
 import 'social_action_button.dart';
 
 class HSocialButtons extends StatelessWidget {
@@ -11,18 +12,19 @@ class HSocialButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         HCircularSocialButton(
-          onpressed: () {},
+          onpressed: () => controller.googleSignIn(),
           image: HImages.google,
         ),
-        const SizedBox(width: HSizes.spaceBtwItems),
-        HCircularSocialButton(
-          onpressed: () {},
-          image: HImages.facebook,
-        ),
+        // const SizedBox(width: HSizes.spaceBtwItems),
+        // HCircularSocialButton(
+        //   onpressed: () {},
+        //   image: HImages.facebook,
+        // ),
       ],
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:t_store/features/personalization/controllers/user_controller.dart';
 
 import '../../../../data/repositories/repositories.authentication/authentication_repository.dart';
 import '../../../../utils/constants/image_strings.dart';
@@ -19,6 +20,7 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   /// Focus Nodes
   final emailFocusNode = FocusNode();
@@ -74,11 +76,45 @@ class LoginController extends GetxController {
       }
 
       // Login User using Email & Password
-      final userCredential =
-          await AuthenticatorRepository.instance.loginWithEmailAndPassword(
+      // final userCredential =
+      await AuthenticatorRepository.instance.loginWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
+
+      // Stop Loading
+      HFullScreenLoader.stopLoading();
+
+      // Redirect to the relevant screen
+      AuthenticatorRepository.instance.screenredirect();
+    } catch (e) {
+      HFullScreenLoader.stopLoading();
+
+      HLoarders.errorSnackBar(title: 'Oh Snap!', message: 'error: $e');
+    }
+  }
+
+  /// -- Google Sign In
+  void googleSignIn() async {
+    try {
+      // Start Loading
+      HFullScreenLoader.openLoadingDialog(
+        'Logging you in....',
+        HImages.docerAnimation,
+      );
+      // Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        HFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Login User using Google
+      final userCredential =
+          await AuthenticatorRepository.instance.signInWithGoogle();
+
+      // Save User Record
+      await userController.saveUserRecord(userCredential);
 
       // Stop Loading
       HFullScreenLoader.stopLoading();
