@@ -27,7 +27,8 @@ class HLoginForm extends StatelessWidget {
               inputFormatters: controller.emailFormatter,
               controller: controller.emailController,
               keyboardType: TextInputType.emailAddress,
-              validator: (value) => HValidator.validateEmail(value),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: HValidator.validateEmail,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email),
                 labelText: HTexts.email,
@@ -43,10 +44,11 @@ class HLoginForm extends StatelessWidget {
               () => TextFormField(
                 focusNode: controller.passwordFocusNode,
                 controller: controller.passwordController,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 inputFormatters: controller.passwordFormatter,
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: controller.hidePassword.value,
-                validator: (value) => HValidator.validatePassword(value),
+                validator: HValidator.validatePassword,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.lock),
                   labelText: HTexts.password,
