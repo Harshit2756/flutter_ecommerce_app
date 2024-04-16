@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:style_hub/features/personalization/controllers/user_controller.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
@@ -14,6 +15,7 @@ class HUserProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading: const HCircularImage(
         image: HImages.user,
@@ -22,14 +24,14 @@ class HUserProfileTile extends StatelessWidget {
         height: 50,
       ),
       title: Text(
-        'John Doe',
+        controller.user.value.fullName,
         style: Theme.of(context)
             .textTheme
             .headlineSmall!
             .apply(color: HColors.white),
       ),
       subtitle: Text(
-        'supporrt@harshit.com',
+        controller.user.value.email,
         style:
             Theme.of(context).textTheme.bodyMedium!.apply(color: HColors.white),
       ),

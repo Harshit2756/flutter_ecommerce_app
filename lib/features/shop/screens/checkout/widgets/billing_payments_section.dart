@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:t_store/common/widgets/texts/section_heading.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
+import 'package:style_hub/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:style_hub/common/widgets/texts/section_heading.dart';
+import 'package:style_hub/utils/constants/image_strings.dart';
+import 'package:style_hub/utils/helpers/helper_functions.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';

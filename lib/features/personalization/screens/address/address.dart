@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/common/widgets/appbar/appbar.dart';
-import 'package:t_store/features/personalization/screens/address/add_new_address.dart';
-import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+import 'package:style_hub/common/widgets/appbar/appbar.dart';
+import 'package:style_hub/features/personalization/screens/address/add_new_address.dart';
+import 'package:style_hub/utils/constants/colors.dart';
+import 'package:style_hub/utils/constants/sizes.dart';
 
 import 'widget/single_address.dart';
 

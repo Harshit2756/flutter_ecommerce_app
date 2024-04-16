@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/features/personalization/screens/settings/settings.dart';
-import 'package:t_store/features/shop/screens/strore/strore.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
+import 'package:style_hub/features/personalization/screens/settings/settings.dart';
+import 'package:style_hub/features/shop/screens/strore/strore.dart';
+import 'package:style_hub/utils/helpers/helper_functions.dart';
 
 import 'features/shop/screens/home/home.dart';
 import 'features/shop/screens/wishlist/wishlist.dart';

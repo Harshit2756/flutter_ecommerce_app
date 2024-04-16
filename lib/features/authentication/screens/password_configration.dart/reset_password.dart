@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/features/authentication/controllers/forget_password/forget_password_controller.dart';
-import 'package:t_store/features/authentication/screens/login/login.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
+import 'package:style_hub/features/authentication/controllers/forget_password/forget_password_controller.dart';
+import 'package:style_hub/features/authentication/screens/login/login.dart';
+import 'package:style_hub/utils/constants/image_strings.dart';
 
 import '../../../../common/styles/spcaing_styles.dart';
 import '../../../../utils/constants/sizes.dart';

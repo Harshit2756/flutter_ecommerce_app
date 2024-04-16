@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:t_store/utils/formatters/formatter.dart';
+import 'package:style_hub/utils/formatters/formatter.dart';
 
 /// Model Class representing User Data
 class UserModel {
@@ -79,7 +79,8 @@ class UserModel {
         userName: data['userName'] ?? '',
         profilePicture: data['profilePicture'] ?? '',
       );
+    }else{
+      return UserModel.empty();
     }
-    return UserModel.empty();
   }
 }

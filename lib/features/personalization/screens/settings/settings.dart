@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/common/widgets/appbar/appbar.dart';
-import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:t_store/common/widgets/texts/section_heading.dart';
-import 'package:t_store/features/personalization/screens/address/address.dart';
-import 'package:t_store/features/shop/screens/order/order.dart';
-import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+import 'package:style_hub/common/widgets/appbar/appbar.dart';
+import 'package:style_hub/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:style_hub/common/widgets/texts/section_heading.dart';
+import 'package:style_hub/features/personalization/screens/address/address.dart';
+import 'package:style_hub/features/shop/screens/order/order.dart';
+import 'package:style_hub/utils/constants/colors.dart';
+import 'package:style_hub/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/list_tiles/settings_menu_tile.dart';
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
-import '../../../../data/repositories/repositories.authentication/authentication_repository.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../shop/screens/cart/cart.dart';
 import '../profile/profile.dart';
 

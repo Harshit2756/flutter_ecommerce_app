@@ -1,4 +1,4 @@
-name: t_store
+name: style_hub
 description: A new Flutter project.
 publish_to: "none"
 version: 1.0.0+1
@@ -16,6 +16,7 @@ dependencies:
   intl: ^0.18.1
   logger: ^2.0.1
   lottie: ^3.1.0
+  shimmer: ^3.0.0
   connectivity_plus: ^5.0.1
   url_launcher: ^6.1.12
   flutter_native_splash: ^2.3.1
@@ -47,7 +48,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.2
   flutter_launcher_icons: ^0.13.1
 
   #--------------- ./ DEV PACKAGES END ------------------#

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+import 'package:style_hub/utils/constants/sizes.dart';
 
 class HProfileMenu extends StatelessWidget {
   const HProfileMenu({
