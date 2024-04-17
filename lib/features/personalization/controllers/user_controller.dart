@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:style_hub/data/repositories/authentication/authentication_repository.dart';
 import 'package:style_hub/data/repositories/user/user_repository.dart';
 import 'package:style_hub/features/authentication/models/user_model.dart';
@@ -19,6 +19,7 @@ class UserController extends GetxController {
 
   /// Variables
   final profileLoading = false.obs;
+  final imageUploading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
 
   final hidePassword = true.obs;
@@ -38,6 +39,7 @@ class UserController extends GetxController {
   Future<void> fetchUserDetails() async {
     try {
       profileLoading(true);
+      // fetch user details from firebase
       final currentUser = await userRepository.fetchUserDetails();
       user(currentUser);
     } catch (e) {
@@ -50,26 +52,33 @@ class UserController extends GetxController {
   /// Save User Record from any Registration provider
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
-      if (userCredential != null) {
-        // Convert Name to First Name and Last Name
-        final nameParts =
-            UserModel.nameParts(userCredential.user!.displayName ?? '');
-        final username =
-            UserModel.generateUserName(userCredential.user!.displayName ?? '');
+      // First Update Rx User and then check if user data is already stored. if not store new data.
+      fetchUserDetails();
 
-        // Create User Model
-        final user = UserModel(
-          id: userCredential.user!.uid,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-          userName: username,
-          profilePicture: userCredential.user!.photoURL ?? '',
-          email: userCredential.user!.email ?? '',
-          phoneNumber: userCredential.user!.phoneNumber ?? '',
-        );
+      // If no record already stored
+      if (user.value.id.isEmpty) {
+        if (userCredential != null) {
+          // Convert Name to First Name and Last Name
+          final nameParts =
+              UserModel.nameParts(userCredential.user!.displayName ?? '');
+          final username = UserModel.generateUserName(
+              userCredential.user!.displayName ?? '');
 
-        // Save User Record
-        await userRepository.saveUserRecord(user);
+          // Create User Model
+          final user = UserModel(
+            id: userCredential.user!.uid,
+            firstName: nameParts[0],
+            lastName:
+                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            userName: username,
+            email: userCredential.user!.email ?? '',
+            phoneNumber: userCredential.user!.phoneNumber ?? '',
+            profilePicture: userCredential.user!.photoURL ?? '',
+          );
+
+          // Save User Record in firebase
+          await userRepository.saveUserRecord(user);
+        }
       }
     } catch (e) {
       HLoarders.waringSnackBar(
@@ -171,6 +180,65 @@ class UserController extends GetxController {
       HFullScreenLoader.stopLoading();
 
       HLoarders.errorSnackBar(title: 'Oh Snap!', message: 'error: $e');
+    }
+  }
+
+  /// Upload Provife Image
+  uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        imageQuality: 70,
+        maxWidth: 512,
+        maxHeight: 512,
+      );
+
+      //  Show crop image screen
+      // ImageCropper().cropImage(
+      //   sourcePath: image!.path,
+      //   aspectRatioPresets: [
+      //     CropAspectRatioPreset.square,
+      //     CropAspectRatioPreset.ratio3x2,
+      //     CropAspectRatioPreset.original,
+      //     CropAspectRatioPreset.ratio4x3,
+      //     CropAspectRatioPreset.ratio16x9
+      //   ],
+      //   androidUiSettings: const AndroidUiSettings(
+      //       toolbarTitle: 'Cropper',
+      //       toolbarColor: Colors.deepOrange,
+      //       toolbarWidgetColor: Colors.white,
+      //       initAspectRatio: CropAspectRatioPreset.original,
+      //       lockAspectRatio: false),
+      //   iosUiSettings: const IOSUiSettings(
+      //     minimumAspectRatio: 1.0,
+      //   ),
+      // );
+
+      if (image != null) {
+        imageUploading(true);
+
+        // Upload Image
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        // Update User Profile Picture
+        Map<String, dynamic> data = {'profilePicture': imageUrl};
+        await userRepository.updateSingleField(data);
+
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+        HLoarders.successSnackBar(
+          title: 'Profile Picture Updated',
+          message: 'Your Profile Picture has been updated successfully.',
+        );
+      }
+    } catch (e) {
+      HLoarders.errorSnackBar(
+        title: 'Profile Picture Update Failed',
+        message: 'Something went wrong : $e',
+      );
+    } finally {
+      imageUploading(false);
     }
   }
 }

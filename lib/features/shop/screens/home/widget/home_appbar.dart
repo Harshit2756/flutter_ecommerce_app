@@ -29,7 +29,7 @@ class HHomeAppBar extends StatelessWidget {
           ),
           Obx(() {
             return controller.profileLoading.value
-                ? const TShimmerEffect(width: 80, height: 15)
+                ? const HShimmerEffect(width: 80, height: 15)
                 : Text(
                     controller.user.value.fullName,
                     style: Theme.of(context)

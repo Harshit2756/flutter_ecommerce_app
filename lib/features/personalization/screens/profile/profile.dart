@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:style_hub/common/widgets/loaders/shimmer.dart';
 import 'package:style_hub/utils/formatters/formatter.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
@@ -30,13 +31,25 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const HCircularImage(
-                      image: HImages.user,
-                      width: 80,
-                      height: 80,
-                    ),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image =
+                          networkImage.isNotEmpty ? networkImage : HImages.user;
+                      return controller.profileLoading.value
+                          ? const HShimmerEffect(
+                              width: 80,
+                              height: 80,
+                              radius: 80,
+                            )
+                          : HCircularImage(
+                              image: image,
+                              isNetworkImage: networkImage.isNotEmpty,
+                              width: 80,
+                              height: 80,
+                            );
+                    }),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => controller.uploadUserProfilePicture(),
                       child: const Text("Change Profile Picture"),
                     ),
                   ],
