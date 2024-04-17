@@ -35,7 +35,7 @@ class ProfileScreen extends StatelessWidget {
                       final networkImage = controller.user.value.profilePicture;
                       final image =
                           networkImage.isNotEmpty ? networkImage : HImages.user;
-                      return controller.profileLoading.value
+                      return controller.imageUploading.value
                           ? const HShimmerEffect(
                               width: 80,
                               height: 80,
@@ -46,6 +46,7 @@ class ProfileScreen extends StatelessWidget {
                               isNetworkImage: networkImage.isNotEmpty,
                               width: 80,
                               height: 80,
+                              padding: 0,
                             );
                     }),
                     TextButton(

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:style_hub/data/repositories/authentication/authentication_repository.dart';
 import 'package:style_hub/data/repositories/user/user_repository.dart';
@@ -144,7 +145,7 @@ class UserController extends GetxController {
     }
   }
 
-  /// -- Re-Authenticate User
+  /// Re-Authenticate User
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
       // Start Loading
@@ -183,54 +184,89 @@ class UserController extends GetxController {
     }
   }
 
+  /// Image Source Popup
+  Future<ImageSource?> showImageSourceSelection() async {
+    return await showModalBottomSheet<ImageSource>(
+      context: Get.context!, // Get the current context using GetX
+      builder: (BuildContext bc) {
+        return SafeArea(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Photo Library'),
+                onTap: () {
+                  Get.back(result: ImageSource.gallery);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.photo_camera),
+                title: const Text('Camera'),
+                onTap: () {
+                  Get.back(result: ImageSource.camera);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   /// Upload Provife Image
   uploadUserProfilePicture() async {
     try {
-      final image = await ImagePicker().pickImage(
-        source: ImageSource.gallery,
+      final ImageSource? source = await showImageSourceSelection();
+      if (source == null) return;
+      final pickedImage = await ImagePicker().pickImage(
+        source: source,
         imageQuality: 70,
         maxWidth: 512,
         maxHeight: 512,
       );
 
-      //  Show crop image screen
-      // ImageCropper().cropImage(
-      //   sourcePath: image!.path,
-      //   aspectRatioPresets: [
-      //     CropAspectRatioPreset.square,
-      //     CropAspectRatioPreset.ratio3x2,
-      //     CropAspectRatioPreset.original,
-      //     CropAspectRatioPreset.ratio4x3,
-      //     CropAspectRatioPreset.ratio16x9
-      //   ],
-      //   androidUiSettings: const AndroidUiSettings(
-      //       toolbarTitle: 'Cropper',
-      //       toolbarColor: Colors.deepOrange,
-      //       toolbarWidgetColor: Colors.white,
-      //       initAspectRatio: CropAspectRatioPreset.original,
-      //       lockAspectRatio: false),
-      //   iosUiSettings: const IOSUiSettings(
-      //     minimumAspectRatio: 1.0,
-      //   ),
-      // );
-
-      if (image != null) {
-        imageUploading(true);
-
-        // Upload Image
-        final imageUrl =
-            await userRepository.uploadImage('Users/Images/Profile/', image);
-
-        // Update User Profile Picture
-        Map<String, dynamic> data = {'profilePicture': imageUrl};
-        await userRepository.updateSingleField(data);
-
-        user.value.profilePicture = imageUrl;
-        user.refresh();
-        HLoarders.successSnackBar(
-          title: 'Profile Picture Updated',
-          message: 'Your Profile Picture has been updated successfully.',
+      if (pickedImage != null) {
+        final croppedImage = await ImageCropper().cropImage(
+          sourcePath: pickedImage.path,
+          aspectRatioPresets: [
+            CropAspectRatioPreset.square,
+            CropAspectRatioPreset.ratio3x2,
+            CropAspectRatioPreset.original,
+            CropAspectRatioPreset.ratio4x3,
+            CropAspectRatioPreset.ratio16x9
+          ],
+          uiSettings: [
+            AndroidUiSettings(
+                toolbarTitle: 'Cropper',
+                toolbarColor: Colors.deepOrange,
+                toolbarWidgetColor: Colors.white,
+                initAspectRatio: CropAspectRatioPreset.original,
+                lockAspectRatio: false),
+            IOSUiSettings(
+              title: 'Cropper',
+            ),
+          ],
         );
+
+        if (croppedImage != null) {
+          imageUploading(true);
+
+          final xFile = XFile(croppedImage.path);
+          // Upload Image
+          final imageUrl =
+              await userRepository.uploadImage('Users/Images/Profile/', xFile);
+
+          // Update User Profile Picture
+          Map<String, dynamic> data = {'profilePicture': imageUrl};
+          await userRepository.updateSingleField(data);
+
+          user.value.profilePicture = imageUrl;
+          user.refresh();
+          HLoarders.successSnackBar(
+            title: 'Profile Picture Updated',
+            message: 'Your Profile Picture has been updated successfully.',
+          );
+        }
       }
     } catch (e) {
       HLoarders.errorSnackBar(
