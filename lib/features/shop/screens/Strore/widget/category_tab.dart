@@ -4,10 +4,10 @@ import 'package:style_hub/common/widgets/products/product_cards/product_card_ver
 import 'package:style_hub/common/widgets/texts/section_heading.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
-import '../../../../../utils/constants/image_strings.dart';
-import '../../../../../utils/constants/sizes.dart';
 
-class HCategoryTab extends StatelessWidget {
+
+import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/sizes.dart';class HCategoryTab extends StatelessWidget {
   const HCategoryTab({
     super.key,
   });

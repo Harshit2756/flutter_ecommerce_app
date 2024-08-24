@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/utils/helpers/helper_functions.dart';
-
 import '../../common/widgets/loaders/animation_loader.dart';
+import '../helpers/helper_functions.dart';
+
 import '../constants/colors.dart';
 
 class HFullScreenLoader {

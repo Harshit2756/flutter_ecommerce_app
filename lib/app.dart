@@ -13,8 +13,8 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: TAppTheme.lightTheme,
-      darkTheme: TAppTheme.darkTheme,
+      theme: HAppTheme.lightTheme,
+      darkTheme: HAppTheme.darkTheme,
       initialBinding: GeneralBindings(),
       home: const Scaffold(
         backgroundColor: HColors.primary,

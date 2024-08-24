@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         /// -- Section Heading
                         HSectionHeading(
-                          title: 'Popular Categories',
+                          title: 'Popular Categories s',
                           textColor: HColors.white,
                           showActionButton: false,
                         ),

@@ -47,31 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBBsPIumSTKyITt4mUwexqgqbtHHpnUMJo',
-    appId: '1:58944183765:web:c84d59cbb324d71b44b15c',
-    messagingSenderId: '58944183765',
-    projectId: 'ecommerceapp-1f5a6',
-    authDomain: 'ecommerceapp-1f5a6.firebaseapp.com',
-    storageBucket: 'ecommerceapp-1f5a6.appspot.com',
-    measurementId: 'G-4VYQ3C379M',
+    apiKey: 'AIzaSyDZHCWG7oUaFsqWi3lENeC5l4vMvrE69Ys',
+    appId: '1:30004805795:web:91ce983ffe54f01520bf16',
+    messagingSenderId: '30004805795',
+    projectId: 'style-hub-app',
+    authDomain: 'style-hub-app.firebaseapp.com',
+    storageBucket: 'style-hub-app.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDdDcomxvrhei4uPZVfCQoStPG9RiEc4BQ',
-    appId: '1:58944183765:android:863f0b266a424b5944b15c',
-    messagingSenderId: '58944183765',
-    projectId: 'ecommerceapp-1f5a6',
-    storageBucket: 'ecommerceapp-1f5a6.appspot.com',
+    apiKey: 'AIzaSyCM2tObQ_pMv8zGaMlMBpjJKqGfqGyJYhg',
+    appId: '1:30004805795:android:fc746be4532f37fc20bf16',
+    messagingSenderId: '30004805795',
+    projectId: 'style-hub-app',
+    storageBucket: 'style-hub-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCYtvI3DHR2C7or8eR_LOGOV1OOtJ6lFqM',
-    appId: '1:58944183765:ios:02f52f24eb9d304b44b15c',
-    messagingSenderId: '58944183765',
-    projectId: 'ecommerceapp-1f5a6',
-    storageBucket: 'ecommerceapp-1f5a6.appspot.com',
-    androidClientId: '58944183765-0o715q7e01mvk5bugcgfednmq9spdl3s.apps.googleusercontent.com',
-    iosClientId: '58944183765-5spjqgla8s9rv0rfj44b3hehv1e2pg40.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCOoYhq-HlO0rJoAMXWDGqew0lCIHjOGIc',
+    appId: '1:30004805795:ios:7ef021b7deca522620bf16',
+    messagingSenderId: '30004805795',
+    projectId: 'style-hub-app',
+    storageBucket: 'style-hub-app.appspot.com',
     iosBundleId: 'com.example.ecommerceApp',
   );
+
 }

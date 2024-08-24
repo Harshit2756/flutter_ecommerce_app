@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../utils/constants/sizes.dart';
 import 'widgets/review_details_container.dart';
 import 'widgets/rating_progress_indicator.dart';
-import '../../../../utils/constants/sizes.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/products/ratings/rating_indicator.dart';
 

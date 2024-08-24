@@ -6,7 +6,7 @@ import 'package:style_hub/features/personalization/controllers/user_controller.d
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../images/h_circular_image.dart';
-import '../loaders/shimmer.dart';
+import '../shimmer/shimmer.dart';
 
 class HUserProfileTile extends StatelessWidget {
   const HUserProfileTile({

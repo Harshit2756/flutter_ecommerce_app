@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
-import '../../../../utils/constants/sizes.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../features/shop/screens/home/home.dart';
 import '../../../../common/widgets/layout/grid_layout.dart';
 import '../../../../common/widgets/icons/h_circular_icon.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../utils/constants/sizes.dart';
 
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
