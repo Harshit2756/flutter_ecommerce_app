@@ -4,6 +4,8 @@ import 'package:shimmer/shimmer.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
+
+
 class HShimmerEffect extends StatelessWidget {
   const HShimmerEffect({
     super.key,
@@ -20,7 +22,7 @@ class HShimmerEffect extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = HHelperFunctions.isDarkMode(context);
     return Shimmer.fromColors(
-      period: const Duration(milliseconds: 90000),
+      period: const Duration(milliseconds: 5000),
       baseColor: dark ? Colors.grey[850]! : Colors.grey[300]!,
       highlightColor: dark ? Colors.grey[700]! : Colors.grey[100]!,
       child: Container(

@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/data/repositories/authentication/authentication_repository.dart';
-import 'package:style_hub/utils/constants/image_strings.dart';
-import 'package:style_hub/utils/constants/text_strings.dart';
-import 'package:style_hub/utils/popups/loaders.dart';
+import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:ecommerce_app/utils/constants/image_strings.dart';
+import 'package:ecommerce_app/utils/constants/text_strings.dart';
+import 'package:ecommerce_app/utils/popups/loaders.dart';
 
 import '../../../../common/widgets/success_screen/success_screen.dart';
 

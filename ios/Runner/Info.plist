@@ -5,7 +5,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>Style Hub</string>
+		<string>Ecommerce App</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>Style Hub</string>
+		<string>ecommerce_app</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -47,11 +47,5 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
-		<key>NSPhotoLibraryUsageDescription</key>
-		<string>Need to upload image</string>
-		<key>NSCameraUsageDescription</key>
-		<string>Need to upload image</string>
-		<key>NSMicrophoneUsageDescription</key>
-		<string>Need to upload image</string>
 	</dict>
 </plist>

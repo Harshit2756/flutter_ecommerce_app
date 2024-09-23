@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/data/repositories/authentication/authentication_repository.dart';
-import 'package:style_hub/utils/constants/image_strings.dart';
-import 'package:style_hub/utils/popups/full_screen_loader.dart';
+import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:ecommerce_app/utils/constants/image_strings.dart';
+import 'package:ecommerce_app/utils/popups/full_screen_loader.dart';
 
 import '../../../../data/repositories/user/user_repository.dart';
 import '../../../../utils/helpers/network_manager.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/common/widgets/login_signup/form_divider.dart';
-import 'package:style_hub/common/widgets/login_signup/social_buttons.dart';
-import 'package:style_hub/utils/constants/sizes.dart';
-import 'package:style_hub/utils/constants/text_strings.dart';
+import 'package:ecommerce_app/common/widgets/login_signup/form_divider.dart';
+import 'package:ecommerce_app/common/widgets/login_signup/social_buttons.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/constants/text_strings.dart';
 
 import 'widget/signup_form.dart';
 

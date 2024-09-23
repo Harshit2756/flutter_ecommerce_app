@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/data/repositories/authentication/authentication_repository.dart';
-import 'package:style_hub/utils/constants/image_strings.dart';
-import 'package:style_hub/utils/constants/sizes.dart';
-import 'package:style_hub/utils/constants/text_strings.dart';
-import 'package:style_hub/utils/helpers/helper_functions.dart';
+import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:ecommerce_app/utils/constants/image_strings.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/constants/text_strings.dart';
+import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 
 import '../../controllers/signup/verify_email_controller.dart';
 

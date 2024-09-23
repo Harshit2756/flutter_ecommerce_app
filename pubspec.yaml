@@ -1,7 +1,8 @@
-name: style_hub
-description: A new Flutter project.
-publish_to: "none"
+name: ecommerce_app
+description: "A new Flutter project."
+publish_to: 'none' 
 version: 1.0.0+1
+
 
 environment:
   sdk: ">=3.0.5 <4.0.0"
@@ -15,7 +16,6 @@ dependencies:
   http: ^1.1.0
   intl: ^0.19.0
   logger: ^2.0.1
-  lottie: ^3.1.0
   shimmer: ^3.0.0
   image_picker: ^1.1.0
   url_launcher: ^6.1.12
@@ -26,6 +26,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
 
   # Icons
+  lottie: ^3.1.0
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.2
 
@@ -45,6 +46,7 @@ dependencies:
   cloud_firestore: ^4.16.1
   google_sign_in: ^6.2.1
   firebase_storage: ^11.7.2
+  # firebase_app_check: ^0.2.2+7
 
   #--------------- ./ PACKAGES END ------------------#
 
@@ -52,7 +54,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.2
+  flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.13.1
 
   #--------------- ./ DEV PACKAGES END ------------------#
@@ -61,7 +63,7 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/logos/style-hub-splash-logo-black.png"
-  # adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/logos/logo_foreground.png"
 
   # dart run flutter_launcher_icons:main
@@ -80,7 +82,7 @@ flutter_native_splash:
 
   web: false
 
-  # dart run flutter_native_splash:create --path=splash.yaml
+  # dart run flutter_native_splash:create --path=pubspec.yaml
   # dart run flutter_native_splash:remove
 
 flutter:

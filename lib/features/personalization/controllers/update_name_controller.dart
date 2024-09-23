@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/utils/constants/image_strings.dart';
+import 'package:ecommerce_app/utils/constants/image_strings.dart';
 
 import '../../../data/repositories/user/user_repository.dart';
 import '../../../utils/helpers/network_manager.dart';

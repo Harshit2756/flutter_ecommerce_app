@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:style_hub/common/widgets/appbar/appbar.dart';
+import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
 
 import '../../../../utils/constants/sizes.dart';
 import '../checkout/checkout.dart';

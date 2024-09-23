@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:style_hub/features/personalization/controllers/user_controller.dart';
+import 'package:ecommerce_app/features/personalization/controllers/user_controller.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../images/h_circular_image.dart';
-import '../loaders/shimmer.dart';
+import '../shimmer/shimmer.dart';
 
 class HUserProfileTile extends StatelessWidget {
   const HUserProfileTile({
@@ -31,7 +31,7 @@ class HUserProfileTile extends StatelessWidget {
             : HCircularImage(
                 image: image,
                 isNetworkImage: networkImage.isNotEmpty,
-                padding: 0,
+                padding: const EdgeInsets.all(0),
               );
       }),
       title: Text(

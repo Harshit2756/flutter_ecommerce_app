@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:style_hub/utils/constants/colors.dart';
-import 'package:style_hub/utils/constants/sizes.dart';
-import 'package:style_hub/utils/device/device_utility.dart';
+import 'package:ecommerce_app/utils/constants/colors.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/device/device_utility.dart';
 
 /// A widget for displaying an animated loading indicator with optional text and action button.
 class HAnimationLoaderWidget extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:style_hub/common/widgets/loaders/shimmer.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
+import '../shimmer/shimmer.dart';
 
 class HCircularImage extends StatelessWidget {
   const HCircularImage({
@@ -15,11 +15,12 @@ class HCircularImage extends StatelessWidget {
     required this.image,
     this.backgroundColor,
     this.fit = BoxFit.cover,
-    this.padding = HSizes.sm,
+    this.padding = const EdgeInsets.all(HSizes.sm),
     this.isNetworkImage = false,
   });
 
-  final double width, height, padding;
+  final double width, height;
+  final EdgeInsetsGeometry padding;
   final Color? overlayColor, backgroundColor;
   final String image;
   final bool isNetworkImage;
@@ -30,7 +31,7 @@ class HCircularImage extends StatelessWidget {
     return Container(
         width: width,
         height: height,
-        padding: EdgeInsets.all(padding),
+        padding: padding,
         decoration: BoxDecoration(
           color: HHelperFunctions.isDarkMode(context)
               ? HColors.black
@@ -57,7 +58,7 @@ class HCircularImage extends StatelessWidget {
                   )
                 : Image(
                     fit: fit,
-                    image: AssetImage(image) as ImageProvider,
+                    image: AssetImage(image),
                     color: overlayColor,
                   ),
           ),

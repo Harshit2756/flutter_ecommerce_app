@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:style_hub/common/widgets/texts/section_heading.dart';
-import 'package:style_hub/utils/constants/sizes.dart';
+import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
 
 import '../product_reviews/product_reviews.dart';
 import 'widget/bottom_add_to_cart_widget.dart';

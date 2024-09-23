@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:style_hub/data/repositories/authentication/authentication_repository.dart';
-import 'package:style_hub/data/repositories/user/user_repository.dart';
-import 'package:style_hub/features/authentication/models/user_model.dart';
-import 'package:style_hub/utils/constants/sizes.dart';
-import 'package:style_hub/utils/popups/loaders.dart';
+import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:ecommerce_app/data/repositories/user/user_repository.dart';
+import 'package:ecommerce_app/features/authentication/models/user_model.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/popups/loaders.dart';
 
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/helpers/network_manager.dart';

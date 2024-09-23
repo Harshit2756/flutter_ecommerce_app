@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:style_hub/common/widgets/loaders/shimmer.dart';
-import 'package:style_hub/utils/formatters/formatter.dart';
+import 'package:ecommerce_app/utils/formatters/formatter.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/images/h_circular_image.dart';
+import '../../../../common/widgets/shimmer/shimmer.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
@@ -31,24 +31,28 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    Obx(() {
-                      final networkImage = controller.user.value.profilePicture;
-                      final image =
-                          networkImage.isNotEmpty ? networkImage : HImages.user;
-                      return controller.imageUploading.value
-                          ? const HShimmerEffect(
-                              width: 80,
-                              height: 80,
-                              radius: 80,
-                            )
-                          : HCircularImage(
-                              image: image,
-                              isNetworkImage: networkImage.isNotEmpty,
-                              width: 80,
-                              height: 80,
-                              padding: 0,
-                            );
-                    }),
+                    Obx(
+                      () {
+                        final networkImage =
+                            controller.user.value.profilePicture;
+                        final image = networkImage.isNotEmpty
+                            ? networkImage
+                            : HImages.user;
+                        return controller.imageUploading.value
+                            ? const HShimmerEffect(
+                                width: 80,
+                                height: 80,
+                                radius: 80,
+                              )
+                            : HCircularImage(
+                                image: image,
+                                isNetworkImage: networkImage.isNotEmpty,
+                                width: 80,
+                                height: 80,
+                                padding: const EdgeInsets.all(0),
+                              );
+                      },
+                    ),
                     TextButton(
                       onPressed: () => controller.uploadUserProfilePicture(),
                       child: const Text("Change Profile Picture"),
