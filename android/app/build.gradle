@@ -28,7 +28,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.ecommerce_app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -58,14 +58,9 @@ android {
 }
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
-    
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"    
 }
 
-<<<<<<< HEAD
 flutter {
     source = "../.."
-=======
-dependencies {
-    implementation 'androidx.multidex:multidex:2.0.1'
->>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 }

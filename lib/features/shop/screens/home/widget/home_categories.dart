@@ -19,7 +19,6 @@ class HHomeCategories extends StatelessWidget {
         if (categoryController.isLoading.value) {
           return const HCategoryShimmer();
         }
-<<<<<<< HEAD
         if (categoryController.featuredCategories.isEmpty) {
           return Center(
             child: Text(
@@ -33,10 +32,6 @@ class HHomeCategories extends StatelessWidget {
         }
         return SizedBox(
           height: 100,
-=======
-        return SizedBox(
-          height: 80,
->>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -44,11 +39,7 @@ class HHomeCategories extends StatelessWidget {
             itemBuilder: (_, index) {
               final category = categoryController.featuredCategories[index];
               return HVerticalImageText(
-<<<<<<< HEAD
                 image: category.image,
-=======
-                image:category.image,
->>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
                 title: category.name,
                 onTap: () => Get.to(() => const SubCategoriesScreen()),
               );
