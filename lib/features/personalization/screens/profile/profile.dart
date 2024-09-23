@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-<<<<<<< HEAD
 import 'package:ecommerce_app/utils/formatters/formatter.dart';
-=======
-import 'package:style_hub/utils/formatters/formatter.dart';
->>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/images/h_circular_image.dart';

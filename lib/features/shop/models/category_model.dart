@@ -21,17 +21,10 @@ class CategoryModel {
 
   /// Convert model to Json structure so that you can store in firebase
   Map<String, dynamic> toJson() => {
-<<<<<<< HEAD
         'name': name,
         'image': image,
         'parentId': parentId,
         'isFeatured': isFeatured,
-=======
-        'Name': name,
-        'Image': image,
-        'ParentId': parentId,
-        'IsFeatured': isFeatured,
->>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
       };
 
   /// Map Jason oriented document snapshot from Firebase to UserModel
@@ -41,17 +34,10 @@ class CategoryModel {
       final data = document.data()!;
       return CategoryModel(
         id: document.id,
-<<<<<<< HEAD
         name: data['name'] ?? '',
         image: data['image'] ?? '',
         parentId: data['parentId'] ?? '',
         isFeatured: data['isFeatured'] ?? false,
-=======
-        name: data['Name'] ?? '',
-        image: data['Image'] ?? '',
-        parentId: data['ParentId'] ?? '',
-        isFeatured: data['IsFeatured'] ?? '',
->>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
       );
     }
     return CategoryModel.empty();
