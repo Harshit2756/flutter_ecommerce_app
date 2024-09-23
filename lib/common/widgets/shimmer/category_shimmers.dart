@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:ecommerce_app/common/widgets/shimmer/shimmer.dart';
+=======
+import 'package:style_hub/common/widgets/shimmer/shimmer.dart';
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 
 import '../../../utils/constants/sizes.dart';
 

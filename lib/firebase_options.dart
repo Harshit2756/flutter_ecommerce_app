@@ -47,6 +47,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
+<<<<<<< HEAD
     apiKey: 'AIzaSyD5kw9plkDCkpVqmkxWR-DwESDwabDVLRA',
     appId: '1:30959955961:web:a50a96b1738e303ccf9728',
     messagingSenderId: '30959955961',
@@ -71,6 +72,30 @@ class DefaultFirebaseOptions {
     storageBucket: 'ecommerce-app-6067a.appspot.com',
     androidClientId: '30959955961-8g9f2n8ohi6thic4qbqi8hjq1oqae6nh.apps.googleusercontent.com',
     iosClientId: '30959955961-rv85ng6bc9ofptlosa425uhdm29b5ch4.apps.googleusercontent.com',
+=======
+    apiKey: 'AIzaSyDZHCWG7oUaFsqWi3lENeC5l4vMvrE69Ys',
+    appId: '1:30004805795:web:91ce983ffe54f01520bf16',
+    messagingSenderId: '30004805795',
+    projectId: 'style-hub-app',
+    authDomain: 'style-hub-app.firebaseapp.com',
+    storageBucket: 'style-hub-app.appspot.com',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCM2tObQ_pMv8zGaMlMBpjJKqGfqGyJYhg',
+    appId: '1:30004805795:android:fc746be4532f37fc20bf16',
+    messagingSenderId: '30004805795',
+    projectId: 'style-hub-app',
+    storageBucket: 'style-hub-app.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCOoYhq-HlO0rJoAMXWDGqew0lCIHjOGIc',
+    appId: '1:30004805795:ios:7ef021b7deca522620bf16',
+    messagingSenderId: '30004805795',
+    projectId: 'style-hub-app',
+    storageBucket: 'style-hub-app.appspot.com',
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
     iosBundleId: 'com.example.ecommerceApp',
   );
 

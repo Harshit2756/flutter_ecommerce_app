@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
+<<<<<<< HEAD
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:ecommerce_app/common/widgets/products/ratings/rating_indicator.dart';
+=======
+import 'package:style_hub/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:style_hub/common/widgets/products/ratings/rating_indicator.dart';
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';

@@ -61,6 +61,11 @@ dependencies {
     
 }
 
+<<<<<<< HEAD
 flutter {
     source = "../.."
+=======
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 }

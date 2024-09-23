@@ -5,11 +5,16 @@ import 'package:ecommerce_app/common/widgets/products/product_cards/product_card
 import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
+<<<<<<< HEAD
 
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
+=======
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 
-class HCategoryTab extends StatelessWidget {
+
+import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/sizes.dart';class HCategoryTab extends StatelessWidget {
   const HCategoryTab({
     super.key,
     required this.category,

@@ -1,7 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+<<<<<<< HEAD
 import 'package:ecommerce_app/features/shop/models/category_model.dart';
+=======
+import 'package:style_hub/features/shop/models/category_model.dart';
+
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 
 import '../../../utils/exceptions/firebase_exceptions.dart';
 import '../../../utils/exceptions/platform_exceptions.dart';
@@ -17,9 +22,15 @@ class CategoryRepository extends GetxController {
   Future<List<CategoryModel>> getAllCategories() async {
     try {
       final snapshot = await _db.collection('Categories').get();
+<<<<<<< HEAD
       final list =
           snapshot.docs.map((doc) => CategoryModel.fromSnapshot(doc)).toList();
       return list;
+=======
+      return snapshot.docs
+          .map((doc) => CategoryModel.fromSnapshot(doc))
+          .toList();
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
     } on FirebaseException catch (e) {
       throw HFirebaseException(e.code).message;
     } on PlatformException catch (e) {

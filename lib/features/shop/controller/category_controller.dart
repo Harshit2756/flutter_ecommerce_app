@@ -16,11 +16,19 @@ class CategoryController extends GetxController {
   void onInit() {
     super.onInit();
     // Load Categories data
+<<<<<<< HEAD
     fetchCategories();
   }
 
   /// -- Load Categories data
   Future<void> fetchCategories() async {
+=======
+    loadCategories();
+  }
+
+  /// -- Load Categories data
+  Future<void> loadCategories() async {
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
     try {
       // Show loader while loading categories
       isLoading.value = true;
