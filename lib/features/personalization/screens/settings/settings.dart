@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/common/widgets/appbar/appbar.dart';
-import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:t_store/common/widgets/texts/section_heading.dart';
-import 'package:t_store/features/personalization/screens/address/address.dart';
-import 'package:t_store/features/shop/screens/order/order.dart';
-import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+import 'package:ecommerce_app/common/widgets/appbar/appbar.dart';
+import 'package:ecommerce_app/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/features/personalization/screens/address/address.dart';
+import 'package:ecommerce_app/features/shop/screens/order/order.dart';
+import 'package:ecommerce_app/utils/constants/colors.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/list_tiles/settings_menu_tile.dart';
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../shop/screens/cart/cart.dart';
 import '../profile/profile.dart';
 
@@ -168,7 +169,8 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          AuthenticatorRepository.instance.logout(),
                       child: const Text('Logout'),
                     ),
                   ),

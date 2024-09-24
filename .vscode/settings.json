@@ -1,3 +1,7 @@
 {
-  "cmake.sourceDirectory": "D:/harshit_files/Flutter_Dart/Flutter_Project/ecommerce_app/linux"
+<<<<<<< HEAD
+  "dart.flutterSdkPath": ".fvm\\versions\\3.22.0"
+=======
+  "cmake.sourceDirectory": "E:/1.Projects/Flutter_Project/style_hub/linux"
+>>>>>>> 4129d0a92fdceee4d225d1f6c8b17793a30f28da
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
-import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:t_store/common/widgets/products/ratings/rating_indicator.dart';
-import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
-import 'package:t_store/utils/constants/sizes.dart';
-import 'package:t_store/utils/helpers/helper_functions.dart';
+import 'package:ecommerce_app/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:ecommerce_app/common/widgets/products/ratings/rating_indicator.dart';
+
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 
 class UserRieviewCard extends StatelessWidget {
   const UserRieviewCard({

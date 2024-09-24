@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/common/widgets/appbar/appbar.dart';
-import 'package:t_store/common/widgets/images/h_circular_image.dart';
-import 'package:t_store/common/widgets/texts/section_heading.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+import 'package:ecommerce_app/utils/formatters/formatter.dart';
 
+import '../../../../common/widgets/appbar/appbar.dart';
+import '../../../../common/widgets/images/h_circular_image.dart';
+import '../../../../common/widgets/shimmer/shimmer.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../utils/constants/image_strings.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../controllers/user_controller.dart';
+import 'widget/change_name.dart';
 import 'widget/profile_menu.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,11 +18,9 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
-      appBar: const HAppBar(
-        showBackArrow: true,
-        title: Text("Profile"),
-      ),
+      appBar: const HAppBar(showBackArrow: true, title: Text("Profile")),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(HSizes.defaultSpace),
@@ -28,13 +31,30 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const HCircularImage(
-                      image: HImages.user,
-                      width: 80,
-                      height: 80,
+                    Obx(
+                      () {
+                        final networkImage =
+                            controller.user.value.profilePicture;
+                        final image = networkImage.isNotEmpty
+                            ? networkImage
+                            : HImages.user;
+                        return controller.imageUploading.value
+                            ? const HShimmerEffect(
+                                width: 80,
+                                height: 80,
+                                radius: 80,
+                              )
+                            : HCircularImage(
+                                image: image,
+                                isNetworkImage: networkImage.isNotEmpty,
+                                width: 80,
+                                height: 80,
+                                padding: const EdgeInsets.all(0),
+                              );
+                      },
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => controller.uploadUserProfilePicture(),
                       child: const Text("Change Profile Picture"),
                     ),
                   ],
@@ -53,13 +73,13 @@ class ProfileScreen extends StatelessWidget {
 
               HProfileMenu(
                 title: 'Name',
-                value: 'John Doe',
-                onTap: () {},
+                value: controller.user.value.fullName,
+                onTap: () => Get.to(() => const ChangeName()),
               ),
 
               HProfileMenu(
                 title: 'Username',
-                value: 'johndoe',
+                value: controller.user.value.userName,
                 onTap: () {},
               ),
 
@@ -74,20 +94,30 @@ class ProfileScreen extends StatelessWidget {
 
               HProfileMenu(
                 title: 'UserID',
-                value: '456789',
+                value: controller.user.value.id,
                 icon: Iconsax.copy,
-                onTap: () {},
+                onTap: () {
+                  // how to copy text to clipboard in flutter
+                  //  write the code
+
+                  Get.snackbar(
+                    'User ID',
+                    'User ID copied to clipboard',
+                    snackPosition: SnackPosition.BOTTOM,
+                  );
+                },
               ),
 
               HProfileMenu(
                 title: 'Email',
-                value: 'Khandelwalharshit431@gmail.com',
+                value: controller.user.value.email,
                 onTap: () {},
               ),
 
               HProfileMenu(
                 title: 'Phone',
-                value: '+91 1234567890',
+                value: HFormatter.formatPhoneNumber(
+                    controller.user.value.phoneNumber),
                 onTap: () {},
               ),
 
@@ -108,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => controller.deleteAccountWarningPopup(),
                   child: const Text(
                     "Close Account",
                     style: TextStyle(

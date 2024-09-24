@@ -1,12 +1,11 @@
-name: t_store
-description: A new Flutter project.
-publish_to: 'none'
+name: ecommerce_app
+description: "A new Flutter project."
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
-
-
+  # flutter version is 3.22.0
+  sdk: ">=3.0.5 <4.0.0"
 
 #--------------- PACKAGES ------------------#
 dependencies:
@@ -15,13 +14,19 @@ dependencies:
 
   # Utility Packages
   http: ^1.1.0
-  intl: ^0.18.1
+  intl: ^0.19.0
   logger: ^2.0.1
+  shimmer: ^3.0.0
+  image_picker: ^1.1.0
   url_launcher: ^6.1.12
+  image_cropper: ^5.0.1
+  connectivity_plus: ^5.0.1
+  cached_network_image: ^3.3.1
   flutter_native_splash: ^2.3.1
   smooth_page_indicator: ^1.1.0
 
   # Icons
+  lottie: ^3.1.0
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.2
 
@@ -33,9 +38,15 @@ dependencies:
   readmore: ^3.0.0
   carousel_slider: ^4.2.1
   flutter_rating_bar: ^4.0.1
-  capped_progress_indicator: ^0.0.2
 
-
+  # Firebase
+  # flutter_launch: ^0.3.0
+  firebase_core: ^2.29.0
+  firebase_auth: ^4.19.1
+  cloud_firestore: ^4.16.1
+  google_sign_in: ^6.2.1
+  firebase_storage: ^11.7.2
+  # firebase_app_check: ^0.2.2+7
 
   #--------------- ./ PACKAGES END ------------------#
 
@@ -43,8 +54,36 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
 
+  #--------------- ./ DEV PACKAGES END ------------------#
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logos/style-hub-splash-logo-black.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/logos/logo_foreground.png"
+
+  # dart run flutter_launcher_icons:main
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: assets/logos/style-hub-splash-logo-black.png
+  image_dark: assets/logos/style-hub-splash-logo-white.png
+
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#272727"
+    image: assets/logos/style-hub-splash-logo-black.png
+    image_dark: assets/logos/style-hub-splash-logo-white.png
+
+  web: false
+
+  # dart run flutter_native_splash:create --path=pubspec.yaml
+  # dart run flutter_native_splash:remove
 
 flutter:
   uses-material-design: true
@@ -54,7 +93,6 @@ flutter:
     - assets/logos/
     - assets/icons/brands/
     - assets/images/content/
-    - assets/images/banners/
     - assets/images/reviews/
     - assets/images/products/
     - assets/icons/categories/

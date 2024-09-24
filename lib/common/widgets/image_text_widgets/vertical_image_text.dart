@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/common/widgets/images/h_circular_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -7,16 +8,18 @@ import '../../../utils/helpers/helper_functions.dart';
 class HVerticalImageText extends StatelessWidget {
   const HVerticalImageText({
     super.key,
+    this.onTap,
     required this.image,
     required this.title,
-    this.textColor = HColors.white,
     this.backgroundColor,
-    this.onTap,
+    this.isNetworkImage = true,
+    this.textColor = HColors.white,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final VoidCallback? onTap;
 
   @override
@@ -29,34 +32,30 @@ class HVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             /// -- Category Item
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(HSizes.sm),
-              decoration: BoxDecoration(
-                color:
-                    backgroundColor ?? (isDark ? HColors.dark : HColors.white),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Image.asset(
-                image,
-                fit: BoxFit.contain,
-                color: isDark ? HColors.light : HColors.dark,
-              ),
+            HCircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: const EdgeInsets.all(HSizes.sm * 1.4),
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: isDark ? HColors.light : HColors.dark,
             ),
 
-            /// -- Category Name
             const SizedBox(height: HSizes.spaceBtwItems / 2),
 
+            /// -- Category Name
             SizedBox(
-              width: 56,
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.labelMedium!.apply(
-                      color: textColor,
-                    ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              width: 55,
+              child: Center(
+                child: Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .apply(color: textColor),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ],

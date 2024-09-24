@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/features/shop/screens/all_products/all_products.dart';
+import 'package:ecommerce_app/features/shop/screens/all_products/all_products.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         /// -- Section Heading
                         HSectionHeading(
-                          title: 'Popular Categories',
+                          title: 'Popular Categories s',
                           textColor: HColors.white,
                           showActionButton: false,
                         ),

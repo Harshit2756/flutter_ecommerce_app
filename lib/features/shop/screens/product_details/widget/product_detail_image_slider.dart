@@ -31,7 +31,7 @@ class HProductImageSlider extends StatelessWidget {
                 padding: EdgeInsets.all(HSizes.productImageRadius * 2),
                 child: Center(
                   child: Image(
-                    image: AssetImage(HImages.productImage5),
+                    image: AssetImage(HImages.productImage1),
                   ),
                 ),
               ),
@@ -54,7 +54,7 @@ class HProductImageSlider extends StatelessWidget {
                   itemBuilder: (_, index) {
                     return HRoundImage(
                       width: 80,
-                      imageUrl: HImages.productImage3,
+                      imageUrl: HImages.productImage1,
                       padding: const EdgeInsets.all(HSizes.sm),
                       border: Border.all(color: HColors.primary),
                       backgroundColor: HHelperFunctions.isDarkMode(context)

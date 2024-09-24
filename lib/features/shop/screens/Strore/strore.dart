@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/shop/controller/category_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,8 +21,9 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = HHelperFunctions.isDarkMode(context);
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       child: Scaffold(
         appBar: HAppBar(
           title: Text(
@@ -77,28 +79,21 @@ class StoreScreen extends StatelessWidget {
                 ),
 
                 /// -- Tabbar
-                bottom: const HTabBar(
-                  tabs: [
-                    Tab(child: Text("Sports")),
-                    Tab(child: Text("Furniture")),
-                    Tab(child: Text("Electronics")),
-                    Tab(child: Text("Clothes")),
-                    Tab(child: Text("Cosmetics")),
-                  ],
+                bottom: HTabBar(
+                  tabs: categories
+                      .map((category) => Tab(child: Text(category.name)))
+                      .toList(),
+                  
                 ),
               ),
             ];
           },
 
           /// -- Body Tabbar View
-          body: const TabBarView(
-            children: [
-              HCategoryTab(),
-              HCategoryTab(),
-              HCategoryTab(),
-              HCategoryTab(),
-              HCategoryTab(),
-            ],
+          body: TabBarView(
+            children: categories
+                .map((category) => HCategoryTab(category: category))
+                .toList(),
           ),
         ),
       ),

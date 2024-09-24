@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:t_store/common/widgets/texts/section_heading.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+import 'package:ecommerce_app/common/widgets/texts/section_heading.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
 
 import '../product_reviews/product_reviews.dart';
 import 'widget/bottom_add_to_cart_widget.dart';
@@ -60,7 +60,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       title: 'Description', showActionButton: false),
                   const SizedBox(height: HSizes.spaceBtwItems),
                   const ReadMoreText(
-'ReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreText adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum',
+                    'ReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreTextReadMoreText adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
