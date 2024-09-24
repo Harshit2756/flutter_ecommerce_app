@@ -408,7 +408,7 @@ class TDummyData {
   //    thumbnail: HImages.productImage69,
   //    description: 'This is Product Discription for Blue Nike Sleeve less vest. There are more things you can add here.',
   //  brand: brandModel(id: '6', image: HImages.zaraLogo, name: 'ZARA'),
-  //    images: [HImages.productImage68, HImages.productImage69, HImages.productImage5],
+  //    images: [HImages.productImage68, HImages.productImage69, HImages.productImage1],
   //    salePrice: 30,
   //    sku: 'ABR4568',
   //    categoryId: '16',

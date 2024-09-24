@@ -1,10 +1,10 @@
 name: ecommerce_app
 description: "A new Flutter project."
-publish_to: 'none' 
+publish_to: "none"
 version: 1.0.0+1
 
-
 environment:
+  # flutter version is 3.22.0
   sdk: ">=3.0.5 <4.0.0"
 
 #--------------- PACKAGES ------------------#
@@ -93,7 +93,6 @@ flutter:
     - assets/logos/
     - assets/icons/brands/
     - assets/images/content/
-    - assets/images/banners/
     - assets/images/reviews/
     - assets/images/products/
     - assets/icons/categories/
