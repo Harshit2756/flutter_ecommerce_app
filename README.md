@@ -1,8 +1,11 @@
 <div align="center" id="top">
   <img src="https://github.com/Harshit2756/flutter_ecommerce_app/blob/99c855fbe753c560b4012899687a1c8b185c45a5/assets/logos/style-hub-splash-logo-white.png?raw=true" alt="StyleHub: Flutter eCommerce App" width="200" height="200"/>
+
 <a href="https://twitter.com/intent/follow?screen_name=Harshit2756"><img alt= "Twitter" src="https://img.shields.io/twitter/follow/Harshit2756">
 </a>
-
+<a href="https://www.linkedin.com/in/harshit-khandelwal-3a76631b9/">
+<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white&label=Harshit%20Khandelwal">
+</a>
 </div>
 
 <h1 align="center">StyleHub: Flutter eCommerce App</h1>
@@ -18,13 +21,10 @@
   <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Harshit2756/flutter_ecommerce_app?color=56BEB8" /> -->
   <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/Harshit2756/flutter_ecommerce_app?color=56BEB8" /> -->
 </p>
-
 <!-- ## Status
-
 <h4 align="center">
  🚧  StyleHub App  🚧
 </h4> -->
-
 <hr>
 
 <p align="center">
@@ -36,17 +36,15 @@
   <a href="https://github.com/Harshit2756" target="_blank">Author</a>
 </p>
 
-<br>
-
 ## :dart: About
 
 This is an eCommerce Application developed using FlutterFire (Flutter+Firebase). I have tried to collect all the basic features of any eCommerce App into this application. It uses Flutter Framework for App Frontend and Backend, and Firebase as server maintaining Databases and Storage requirements of the app.
 
 ## :mobile_phone: See it in action
 
-| <a href=" " target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Live_Preview_Trans.png?raw=true" width="90px"></a> | <a href=" " target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Demo_Video_Trans.png?raw=true" width="90px"></a> | <a href=" " target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Download_Apk_Trans.png?raw=true" width="90px"></a> | <a href=" " target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Source_Code_Trans.png?raw=true" width="90px"></a> |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                     Live Preview                                                                     |                                                                     Demo Video                                                                     |                                                                     Download APK                                                                     |                                                                     Source Code                                                                     |
+| <a href=" " target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Live_Preview_Trans.png?raw=true" width="90px"></a> | <a href=" " target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Demo_Video_Trans.png?raw=true" width="90px"></a> | <a href="https://github.com/Harshit2756/flutter_ecommerce_app/releases/download/v1.0.0/Style_hub_v1.0.0.apk" target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Download_Apk_Trans.png?raw=true" width="90px"></a> | <a href="https://github.com/rahul-badgujar/EShopee-Flutter-eCommerce-App/archive/refs/tags/v1.0.0.zip" target="_blank"><img src="https://github.com/Harshit2756/Harshit2756/blob/main/Assets/Source_Code_Trans.png?raw=true" width="90px"></a> |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                     Live Preview                                                                     |                                                                     Demo Video                                                                     |                                                                                                                     Download APK                                                                                                                      |                                                                                                                  Source Code                                                                                                                   |
 
 <!-- ## Screenshots
 ![App Screenshot](https://tejasbadone.web.app/assets/img/portfolio/apps/eshop/eshop1-01.png)
@@ -96,6 +94,7 @@ flutter pub get
 ```bash
 flutter run
 ```
+
 ## :rocket: Resources
 
 The following Resources were used in this project:
