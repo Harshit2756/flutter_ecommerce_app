@@ -47,6 +47,7 @@ dependencies:
   google_sign_in: ^6.2.1
   firebase_storage: ^11.7.2
   # firebase_app_check: ^0.2.2+7
+  device_preview: ^1.2.0
 
   #--------------- ./ PACKAGES END ------------------#
 

@@ -1,11 +1,11 @@
 {
-    "name": "ecommerce_app",
-    "short_name": "ecommerce_app",
+    "name": "Style Hub",
+    "short_name": "Style Hub",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "This is an eCommerce Application developed using FlutterFire (Flutter+Firebase). I have tried to collect all the basic features of any eCommerce App into this application. It uses Flutter Framework for App Frontend and Backend, and Firebase as server maintaining Databases and Storage requirements of the app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
