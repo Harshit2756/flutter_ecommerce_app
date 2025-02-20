@@ -395,7 +395,7 @@ jobs:
           }
 
       - name: Build Web
-        run: flutter build web --base-href "/flutter_ecommerce_app/"
+        run: flutter build web --base-href "/flutter_ecommerce_app/" --no-tree-shake-icons
       - name: Update docs directory
         run: |
           # Remove old docs and create new one
