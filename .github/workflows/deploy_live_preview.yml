@@ -57,6 +57,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          flutter clean
           flutter pub get
           flutter pub add device_preview
           flutter pub add device_preview_screenshot
