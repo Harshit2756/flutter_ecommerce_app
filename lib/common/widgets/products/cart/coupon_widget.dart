@@ -45,11 +45,11 @@ class HCouponCode extends StatelessWidget {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 foregroundColor: isDark
-                    ? HColors.white.withOpacity(0.5)
-                    : HColors.dark.withOpacity(0.5),
-                backgroundColor: HColors.grey.withOpacity(0.2),
+                    ? HColors.white.withValues(alpha: 0.5)
+                    : HColors.dark.withValues(alpha: 0.5),
+                backgroundColor: HColors.grey.withValues(alpha: 0.2),
                 side: BorderSide(
-                  color: HColors.grey.withOpacity(0.1),
+                  color: HColors.grey.withValues(alpha: 0.1),
                 ),
               ),
               child: const Text('Apply'),

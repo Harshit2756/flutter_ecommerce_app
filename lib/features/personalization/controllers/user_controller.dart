@@ -1,13 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:ecommerce_app/data/repositories/authentication/authentication_repository.dart';
 import 'package:ecommerce_app/data/repositories/user/user_repository.dart';
 import 'package:ecommerce_app/features/authentication/models/user_model.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/popups/loaders.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/helpers/network_manager.dart';
@@ -28,66 +28,6 @@ class UserController extends GetxController {
   final verifyPassword = TextEditingController();
   final userRepository = Get.put(UserRepository());
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
-
-  @override
-  void onInit() {
-    super.onInit();
-    // Get User Details
-    fetchUserDetails();
-  }
-
-  /// Fetch User Details
-  Future<void> fetchUserDetails() async {
-    try {
-      profileLoading(true);
-      // fetch user details from firebase
-      final currentUser = await userRepository.fetchUserDetails();
-      user(currentUser);
-    } catch (e) {
-      user(UserModel.empty());
-    } finally {
-      profileLoading(false);
-    }
-  }
-
-  /// Save User Record from any Registration provider
-  Future<void> saveUserRecord(UserCredential? userCredential) async {
-    try {
-      // First Update Rx User and then check if user data is already stored. if not store new data.
-      fetchUserDetails();
-
-      // If no record already stored
-      if (user.value.id.isEmpty) {
-        if (userCredential != null) {
-          // Convert Name to First Name and Last Name
-          final nameParts =
-              UserModel.nameParts(userCredential.user!.displayName ?? '');
-          final username = UserModel.generateUserName(
-              userCredential.user!.displayName ?? '');
-
-          // Create User Model
-          final user = UserModel(
-            id: userCredential.user!.uid,
-            firstName: nameParts[0],
-            lastName:
-                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-            userName: username,
-            email: userCredential.user!.email ?? '',
-            phoneNumber: userCredential.user!.phoneNumber ?? '',
-            profilePicture: userCredential.user!.photoURL ?? '',
-          );
-
-          // Save User Record in firebase
-          await userRepository.saveUserRecord(user);
-        }
-      }
-    } catch (e) {
-      HLoarders.waringSnackBar(
-          title: 'Data not saved',
-          message:
-              'Something went wrong while saving your information. You can re-save your data in your Profile.');
-    }
-  }
 
   /// Delete Account Warning
   void deleteAccountWarningPopup() {
@@ -145,6 +85,27 @@ class UserController extends GetxController {
     }
   }
 
+  /// Fetch User Details
+  Future<void> fetchUserDetails() async {
+    try {
+      profileLoading(true);
+      // fetch user details from firebase
+      final currentUser = await userRepository.fetchUserDetails();
+      user(currentUser);
+    } catch (e) {
+      user(UserModel.empty());
+    } finally {
+      profileLoading(false);
+    }
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    // Get User Details
+    fetchUserDetails();
+  }
+
   /// Re-Authenticate User
   Future<void> reAuthenticateEmailAndPasswordUser() async {
     try {
@@ -181,6 +142,47 @@ class UserController extends GetxController {
       HFullScreenLoader.stopLoading();
 
       HLoarders.errorSnackBar(title: 'Oh Snap!', message: 'error: $e');
+    }
+  }
+
+  /// Save User Record from any Registration provider
+  Future<void> saveUserRecord(UserCredential? userCredential) async {
+    try {
+      // First Update Rx User and then check if user data is already stored. if not store new data.
+      print('Google Sign In');
+
+      fetchUserDetails();
+
+      // If no record already stored
+      if (user.value.id.isEmpty) {
+        if (userCredential != null) {
+          // Convert Name to First Name and Last Name
+          final nameParts =
+              UserModel.nameParts(userCredential.user!.displayName ?? '');
+          final username = UserModel.generateUserName(
+              userCredential.user!.displayName ?? '');
+
+          // Create User Model
+          final user = UserModel(
+            id: userCredential.user!.uid,
+            firstName: nameParts[0],
+            lastName:
+                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+            userName: username,
+            email: userCredential.user!.email ?? '',
+            phoneNumber: userCredential.user!.phoneNumber ?? '',
+            profilePicture: userCredential.user!.photoURL ?? '',
+          );
+
+          // Save User Record in firebase
+          await userRepository.saveUserRecord(user);
+        }
+      }
+    } catch (e) {
+      HLoarders.waringSnackBar(
+          title: 'Data not saved',
+          message:
+              'Something went wrong while saving your information. You can re-save your data in your Profile.');
     }
   }
 
@@ -228,13 +230,7 @@ class UserController extends GetxController {
       if (pickedImage != null) {
         final croppedImage = await ImageCropper().cropImage(
           sourcePath: pickedImage.path,
-          aspectRatioPresets: [
-            CropAspectRatioPreset.square,
-            CropAspectRatioPreset.ratio3x2,
-            CropAspectRatioPreset.original,
-            CropAspectRatioPreset.ratio4x3,
-            CropAspectRatioPreset.ratio16x9
-          ],
+          aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
           uiSettings: [
             AndroidUiSettings(
                 toolbarTitle: 'Cropper',

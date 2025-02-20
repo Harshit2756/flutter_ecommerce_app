@@ -52,7 +52,7 @@ class HProductCardVertical extends StatelessWidget {
                     top: 12,
                     child: HRoundedContainer(
                       radius: HSizes.sm,
-                      backgroundColor: HColors.secondary.withOpacity(0.8),
+                      backgroundColor: HColors.secondary.withValues(alpha: 0.8),
                       padding: const EdgeInsets.symmetric(
                           horizontal: HSizes.sm, vertical: HSizes.xs),
                       child: Text(

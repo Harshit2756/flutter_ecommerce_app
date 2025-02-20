@@ -8,6 +8,17 @@ import 'features/shop/screens/strore/strore.dart';
 import 'features/shop/screens/wishlist/wishlist.dart';
 import 'utils/helpers/helper_functions.dart';
 
+class NavigationController extends GetxController {
+  final Rx<int> selectedIndex = 0.obs;
+
+  final List<Widget> pages = [
+    const HomeScreen(),
+    const StoreScreen(),
+    const FavouriteScreen(),
+    const SettingsScreen(),
+  ];
+}
+
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
 
@@ -25,8 +36,8 @@ class NavigationMenu extends StatelessWidget {
               controller.selectedIndex.value = index,
           backgroundColor: darkMode ? Colors.black : Colors.white,
           indicatorColor: darkMode
-              ? Colors.white.withOpacity(0.1)
-              : Colors.black.withOpacity(0.1),
+              ? Colors.white.withValues(alpha: 0.1)
+              : Colors.black.withValues(alpha: 0.1),
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
             NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
@@ -38,15 +49,4 @@ class NavigationMenu extends StatelessWidget {
       body: Obx(() => controller.pages[controller.selectedIndex.value]),
     );
   }
-}
-
-class NavigationController extends GetxController {
-  final Rx<int> selectedIndex = 0.obs;
-
-  final List<Widget> pages = [
-    const HomeScreen(),
-    const StoreScreen(),
-    const FavouriteScreen(),
-    const SettingsScreen(),
-  ];
 }

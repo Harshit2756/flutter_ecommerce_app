@@ -1,0 +1,65 @@
+name: "Build & Release"
+# ENVIRONMENT SETUP INSTRUCTIONS:
+# 1. Go to GitHub repository → Settings → Secrets and Variables → Actions
+# 2. Click "New repository secret"
+# 3. Add these secrets:
+#    - Name: API_KEY (Your API key value)
+#    - Name: CONTEXT_KEY (Your context key value)
+# 4. These secrets will be automatically loaded as environment variables
+#    during workflow execution
+# 5. Access in workflow: ${{ secrets.SECRET_NAME }}
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build & Release
+    runs-on: ubuntu-latest
+
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+      CONTEXT_KEY: ${{ secrets.CONTEXT_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - uses: actions/setup-java@v2
+        with:
+          java-version: "17.x"
+          java-package: jdk
+          architecture: x64
+          check-latest: false
+          server-id: github
+          server-username: ${{ github.actor }}
+          server-password: ${{ secrets.GITHUB_TOKEN }}
+          overwrite-settings: true
+          job-status: success
+          distribution: "temurin"
+
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.29.0" #. Specify the Flutter version
+          channel: "stable"
+
+      - run: flutter build apk --release
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*.apk,"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:ecommerce_app/common/widgets/images/h_circular_image.dart';
 import 'package:ecommerce_app/common/widgets/texts/h_brand_title_text_with_verified_icon.dart';
 import 'package:ecommerce_app/common/widgets/texts/product_price_title.dart';
@@ -6,6 +5,7 @@ import 'package:ecommerce_app/common/widgets/texts/product_title_text.dart';
 import 'package:ecommerce_app/utils/constants/enums.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -26,7 +26,7 @@ class HProductMetaData extends StatelessWidget {
             /// Sale Tag
             HRoundedContainer(
               radius: HSizes.sm,
-              backgroundColor: HColors.secondary.withOpacity(0.8),
+              backgroundColor: HColors.secondary.withValues(alpha: 0.8),
               padding: const EdgeInsets.symmetric(
                 horizontal: HSizes.sm,
                 vertical: HSizes.xs,

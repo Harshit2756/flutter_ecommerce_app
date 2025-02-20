@@ -5,6 +5,11 @@ import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
 class HCircularIcon extends StatelessWidget {
+  final double? width, height, iconSize;
+
+  final IconData icon;
+  final Color? iconColor, backgroundColor;
+  final VoidCallback? onPressed;
   const HCircularIcon({
     super.key,
     this.width,
@@ -16,11 +21,6 @@ class HCircularIcon extends StatelessWidget {
     this.onPressed,
   });
 
-  final double? width, height, iconSize;
-  final IconData icon;
-  final Color? iconColor, backgroundColor;
-  final VoidCallback? onPressed;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +30,8 @@ class HCircularIcon extends StatelessWidget {
         color: backgroundColor != null
             ? backgroundColor!
             : HHelperFunctions.isDarkMode(context)
-                ? HColors.black.withOpacity(0.9)
-                : HColors.white.withOpacity(0.9),
+                ? HColors.black.withValues(alpha: 0.9)
+                : HColors.white.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(

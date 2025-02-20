@@ -54,7 +54,7 @@ class HLoginForm extends StatelessWidget {
                   labelText: HTexts.password,
                   hintText: HTexts.password,
                   suffixIcon: IconButton(
-                    icon: const Icon(Icons.visibility_off),
+                    icon: const Icon(Icons.visibility_off ),
                     onPressed: () {
                       controller.hidePassword.value =
                           !controller.hidePassword.value;

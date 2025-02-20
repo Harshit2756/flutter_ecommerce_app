@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
+import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -22,7 +22,7 @@ class HSingleAddress extends StatelessWidget {
       width: double.infinity,
       showBorder: true,
       backgroundColor: selectedAddress
-          ? HColors.primary.withOpacity(0.5)
+          ? HColors.primary.withValues(alpha: 0.5)
           : HColors.transparent,
       borderColor: selectedAddress
           ? HColors.transparent

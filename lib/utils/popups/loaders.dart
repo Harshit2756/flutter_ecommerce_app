@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import '../helpers/helper_functions.dart';
 
 import '../constants/colors.dart';
+import '../helpers/helper_functions.dart';
 
 class HLoarders {
   static hideSnackBar() =>
@@ -21,8 +21,8 @@ class HLoarders {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: HHelperFunctions.isDarkMode(Get.context!)
-                ? HColors.darkerGrey.withOpacity(0.9)
-                : HColors.grey.withOpacity(0.9),
+                ? HColors.darkerGrey.withValues(alpha: 0.9)
+                : HColors.grey.withValues(alpha: 0.9),
           ),
           child: Center(
             child: Text(message,

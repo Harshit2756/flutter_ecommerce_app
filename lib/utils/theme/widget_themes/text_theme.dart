@@ -4,8 +4,6 @@ import '../../constants/colors.dart';
 
 /// Custom Class for Light & Dark Text Themes
 class TTextTheme {
-  TTextTheme._(); // To avoid creating instances
-
   /// Customizable Light Text Theme
   static TextTheme lightTextTheme = TextTheme(
     headlineLarge: const TextStyle().copyWith(
@@ -27,13 +25,13 @@ class TTextTheme {
     bodySmall: const TextStyle().copyWith(
         fontSize: 14.0,
         fontWeight: FontWeight.w500,
-        color: HColors.dark.withOpacity(0.5)),
+        color: HColors.dark.withValues(alpha: 0.5)),
     labelLarge: const TextStyle().copyWith(
         fontSize: 12.0, fontWeight: FontWeight.normal, color: HColors.dark),
     labelMedium: const TextStyle().copyWith(
         fontSize: 12.0,
         fontWeight: FontWeight.normal,
-        color: HColors.dark.withOpacity(0.5)),
+        color: HColors.dark.withValues(alpha: 0.5)),
   );
 
   /// Customizable Dark Text Theme
@@ -57,12 +55,14 @@ class TTextTheme {
     bodySmall: const TextStyle().copyWith(
         fontSize: 14.0,
         fontWeight: FontWeight.w500,
-        color: HColors.light.withOpacity(0.5)),
+        color: HColors.light.withValues(alpha: 0.5)),
     labelLarge: const TextStyle().copyWith(
         fontSize: 12.0, fontWeight: FontWeight.normal, color: HColors.light),
     labelMedium: const TextStyle().copyWith(
         fontSize: 12.0,
         fontWeight: FontWeight.normal,
-        color: HColors.light.withOpacity(0.5)),
+        color: HColors.light.withValues(alpha: 0.5)),
   );
+
+  TTextTheme._(); // To avoid creating instances
 }

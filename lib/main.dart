@@ -23,7 +23,6 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((FirebaseApp app) => Get.put(AuthenticatorRepository()));
 
-  //- Todo: Init Notification
-  //- Todo: Init Analytics
+
   runApp(const App());
 }

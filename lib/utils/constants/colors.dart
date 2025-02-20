@@ -27,7 +27,7 @@ class HColors {
 
   // Background Container colors
   static const Color lightContainer = Color(0xFFF6F6F6);
-  static Color darkContainer = HColors.white.withOpacity(0.1);
+  static Color darkContainer = HColors.white.withValues(alpha: 0.1);
 
   // Transparent colors
   static const Color transparent = Colors.transparent;

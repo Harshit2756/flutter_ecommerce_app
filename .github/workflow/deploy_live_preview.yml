@@ -1,0 +1,415 @@
+name: Flutter Web Preview Build
+
+# PREREQUISITES:
+# 1. Create a new branch named 'live_preview'
+# 2. Configure GitHub Pages:
+#    - Go to Repository Settings > Pages
+#    - Select 'live_preview' branch as source
+#    - Set '/docs' as the publishing directory
+
+# WORKFLOW SETUP:
+# 1. Create this file at: .github/workflows/deploy_live_preview.yml
+# 2. Configure environment secrets:
+#    - Navigate to: Repository Settings > Secrets and Variables > Actions
+#    - Add New Repository Secrets:
+#      * API_KEY: Your API key value
+#      * CONTEXT_KEY: Your context key value
+
+# ACCESSING SECRETS:
+# - In GitHub Actions: ${{ secrets.SECRET_NAME }}
+# - In Windows CMD: %SECRET_NAME%
+# - In PowerShell: $env:SECRET_NAME
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Reset live_preview branch to default branch
+        run: |
+          # Detect default branch (main or master)
+          DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+          echo "Default branch is: $DEFAULT_BRANCH"
+
+          # Reset live_preview to detected default branch
+          git checkout live_preview 2>/dev/null || git checkout -b live_preview
+          git fetch origin $DEFAULT_BRANCH
+          git reset --hard origin/$DEFAULT_BRANCH
+          git push -f origin live_preview
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.29.0" #. Specify the Flutter version
+          channel: "stable"
+
+      - name: Install dependencies
+        run: |
+          flutter pub get
+          flutter pub add device_preview
+          flutter pub add device_preview_screenshot
+          flutter pub add font_awesome_flutter
+          flutter pub get url_launcher
+          flutter pub get
+
+      - name: Update device_preview_button.dart for preview
+        run: |
+          # Ensure we're creating a fresh main.dart
+          cat > lib/device_preview_button.dart << 'EOL' 
+          import 'package:device_preview/device_preview.dart';
+          import 'package:flutter/material.dart';
+          import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+          import 'package:url_launcher/url_launcher.dart';
+
+          class CustomPlugin extends StatelessWidget {
+            final String authorDescription;
+            final String? sourceCodeUrl;
+            final String? apkDownloadUrl;
+            final Color themeColor;
+
+            const CustomPlugin({
+              super.key,
+              this.authorDescription = "Flutter Developer",
+              this.sourceCodeUrl,
+              this.apkDownloadUrl,
+              this.themeColor = const Color(0xFF2196F3),
+            });
+
+            @override
+            Widget build(BuildContext context) {
+              return ToolPanelSection(
+                title: 'Auther and Project INFO',
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: themeColor.withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        _buildAuthorSection(),
+                        _buildActionSection(),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            }
+
+            Widget _buildActionButton({
+              required IconData icon,
+              required String label,
+              required VoidCallback onPressed,
+              bool isPrimary = false,
+            }) {
+              return ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: isPrimary ? themeColor : themeColor.withOpacity(0.1),
+                  foregroundColor: isPrimary ? Colors.white : themeColor,
+                  padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  elevation: isPrimary ? 2 : 0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      icon,
+                      size: 20,
+                      color: isPrimary ? Colors.white : themeColor,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      label,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+
+            Widget _buildActionSection() {
+              return Container(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    if (sourceCodeUrl != null)
+                      Expanded(
+                        child: _buildActionButton(
+                          icon: Icons.code,
+                          label: 'Source Code',
+                          onPressed: () => _launchUrl(sourceCodeUrl!),
+                        ),
+                      ),
+                    if (sourceCodeUrl != null && apkDownloadUrl != null)
+                      const SizedBox(width: 12),
+                    if (apkDownloadUrl != null)
+                      Expanded(
+                        child: _buildActionButton(
+                          icon: Icons.download,
+                          label: 'Download APK',
+                          onPressed: () => _launchUrl(apkDownloadUrl!),
+                          isPrimary: true,
+                        ),
+                      ),
+                  ],
+                ),
+              );
+            }
+
+            Widget _buildAuthorSection() {
+              return Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: themeColor.withOpacity(0.1),
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: themeColor,
+                          radius: 24,
+                          child: const Text(
+                            'HK',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Harshit Khandelwal',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: themeColor,
+                                ),
+                              ),
+                              Text(
+                                authorDescription,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    _buildSocialButtons(),
+                  ],
+                ),
+              );
+            }
+
+            Widget _buildSocialButtons() {
+              return Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.center,
+                children: [
+                  _buildSocialLink(
+                    icon: FontAwesomeIcons.globe,
+                    label: 'Portfolio',
+                    url: 'https://harshit2756.github.io/portfolio/',
+                  ),
+                  _buildSocialLink(
+                    icon: FontAwesomeIcons.github,
+                    label: 'GitHub',
+                    url: 'https://github.com/Harshit2756',
+                  ),
+                  _buildSocialLink(
+                    icon: FontAwesomeIcons.twitter,
+                    label: 'Twitter',
+                    url: 'https://twitter.com/Harshit2756',
+                  ),
+                  _buildSocialLink(
+                    icon: FontAwesomeIcons.linkedin,
+                    label: 'LinkedIn',
+                    url: 'https://www.linkedin.com/in/harshit-khandelwal-3a76631b9/',
+                  ),
+                  _buildSocialLink(
+                    icon: FontAwesomeIcons.medium,
+                    label: 'Medium',
+                    url: 'https://medium.com/@Harshit2756',
+                  ),
+                ],
+              );
+            }
+
+            Widget _buildSocialLink({
+              required IconData icon,
+              required String label,
+              required String url,
+            }) {
+              return Tooltip(
+                message: label,
+                child: InkWell(
+                  onTap: () => _launchUrl(url),
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FaIcon(
+                          icon,
+                          size: 18,
+                          color: themeColor,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          label,
+                          style: TextStyle(
+                            color: themeColor,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }
+
+            Future<void> _launchUrl(String url) async {
+              if (!await launchUrl(Uri.parse(url))) {
+                throw Exception('Could not launch $url');
+              }
+            }
+          }
+          EOL
+      - name: Update main.dart for preview
+        run: |
+          # Ensure we're creating a fresh main.dart
+          cat > lib/main.dart << 'EOL' #. Replace with your main.dart content
+          import 'package:device_preview_screenshot/device_preview_screenshot.dart';
+          import 'package:device_preview/device_preview.dart';
+          import 'device_preview_button.dart';
+
+          #. Replace with your main imports
+          import 'package:ecommerce_app/firebase_options.dart';
+          import 'package:firebase_core/firebase_core.dart';
+          import 'package:flutter/material.dart';
+          import 'package:flutter_native_splash/flutter_native_splash.dart';
+          import 'package:get/get.dart';
+          import 'package:get_storage/get_storage.dart';
+          import 'data/repositories/authentication/authentication_repository.dart';
+
+          import 'app.dart';
+
+          void main() async {
+            // Add Widget Binding
+            final WidgetsBinding widgetsBinding =
+                WidgetsFlutterBinding.ensureInitialized();
+
+            // Init Local Storage
+            await GetStorage.init();
+
+            // Await Native Splash
+            FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+            // Init Firebase
+            await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+                .then((FirebaseApp app) => Get.put(AuthenticatorRepository()));
+
+            runApp(
+              DevicePreview(
+                backgroundColor: Colors.white, #. change the color
+                tools: const [
+                  CustomPlugin(
+                    apkDownloadUrl: "https://github.com/${{ github.repository }}/releases/download/v1.0.0/app-release.apk", #. Dynamic APK download URL
+                    sourceCodeUrl: "https://github.com/${{ github.repository }}/archive/refs/tags/v1.0.0.zip", #. Dynamic source code URL
+                  ),
+                  DeviceSection(
+                    frameVisibility: true,
+                    orientation: false,
+                    virtualKeyboard: true,
+                    model: true,
+                  ),
+                  SystemSection(
+                    locale: false,
+                    theme: true,
+                  ),
+                  SettingsSection(
+                    backgroundTheme: true,
+                    toolsTheme: true,
+                  ),
+                  DevicePreviewScreenshot(),
+                ],
+                devices: [
+                  Devices.android.samsungGalaxyA50,
+                  Devices.android.samsungGalaxyNote20,
+                  Devices.android.samsungGalaxyS20,
+                  Devices.android.samsungGalaxyNote20Ultra,
+                  Devices.android.onePlus8Pro,
+                  Devices.android.sonyXperia1II,
+                  Devices.ios.iPhoneSE,
+                  Devices.ios.iPhone12,
+                  Devices.ios.iPhone12Mini,
+                  Devices.ios.iPhone12ProMax,
+                  Devices.ios.iPhone13,
+                  Devices.ios.iPhone13ProMax,
+                  Devices.ios.iPhone13Mini,
+                  Devices.ios.iPhoneSE,
+                ],
+                enabled: true,
+                builder: (context) => const App(), #. replace your app file
+              ),
+            );
+          }
+
+      - name: Build Web
+        run: flutter build web --base-href "/flutter_ecommerce_app/" #. Specify the base href
+
+      - name: Update docs directory
+        run: |
+          # Remove old docs and create new one
+          rm -rf docs
+          mkdir -p docs
+          # Copy web build to docs
+          cp -r build/web/. docs/
+
+      - name: Commit and push preview changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          # Stage all changes
+          git add docs lib/main.dart
+          git commit -m "Update web preview build" || echo "No changes to commit"
+          # Force push to ensure clean state
+          git push -f origin live_preview

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'rounded_container.dart';
-import '../curved_edges/curved_edges_widget.dart';
 import '../../../../utils/constants/colors.dart';
+import '../curved_edges/curved_edges_widget.dart';
+import 'rounded_container.dart';
 
 class HPrimaryHeaderContainer extends StatelessWidget {
+  final Widget child;
+
   const HPrimaryHeaderContainer({
     super.key,
     required this.child,
   });
-
-  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class HPrimaryHeaderContainer extends StatelessWidget {
                 height: 400,
                 width: 400,
                 radius: 400,
-                backgroundColor: HColors.textWhite.withOpacity(0.1),
+                backgroundColor: HColors.textWhite.withValues(alpha: 0.1),
               ),
             ),
             Positioned(
@@ -38,7 +38,7 @@ class HPrimaryHeaderContainer extends StatelessWidget {
                 height: 400,
                 width: 400,
                 radius: 400,
-                backgroundColor: HColors.textWhite.withOpacity(0.1),
+                backgroundColor: HColors.textWhite.withValues(alpha: 0.1),
               ),
             ),
             child,

@@ -1,7 +1,5 @@
-// import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
-
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:get/get.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/rounded_container.dart';

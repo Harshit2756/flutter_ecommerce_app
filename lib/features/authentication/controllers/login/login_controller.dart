@@ -1,8 +1,8 @@
+import 'package:ecommerce_app/features/personalization/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:ecommerce_app/features/personalization/controllers/user_controller.dart';
 
 import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../utils/constants/image_strings.dart';
@@ -34,18 +34,6 @@ class LoginController extends GetxController {
   final List<FilteringTextInputFormatter> passwordFormatter = [
     FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9.!@#\$&*~]'))
   ];
-
-  @override
-  void onInit() {
-    // Check if Remember Me is enabled
-    if (localStorage.read('REMEMBER_ME_EMAIL') != null &&
-        localStorage.read('REMEMBER_ME_PASSWORD') != null) {
-      emailController.text = localStorage.read('REMEMBER_ME_EMAIL');
-      passwordController.text = localStorage.read('REMEMBER_ME_PASSWORD');
-      rememberMe.value = true;
-    }
-    super.onInit();
-  }
 
   /// -- Login
   void emailAndPasswordSigIn() async {
@@ -102,6 +90,7 @@ class LoginController extends GetxController {
         'Logging you in....',
         HImages.docerAnimation,
       );
+      print('Google Sign In');
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
@@ -122,9 +111,23 @@ class LoginController extends GetxController {
       // Redirect to the relevant screen
       AuthenticatorRepository.instance.screenredirect();
     } catch (e) {
+      print('Google Sign In');
+
       HFullScreenLoader.stopLoading();
 
       HLoarders.errorSnackBar(title: 'Oh Snap!', message: 'error: $e');
     }
+  }
+
+  @override
+  void onInit() {
+    // Check if Remember Me is enabled
+    if (localStorage.read('REMEMBER_ME_EMAIL') != null &&
+        localStorage.read('REMEMBER_ME_PASSWORD') != null) {
+      emailController.text = localStorage.read('REMEMBER_ME_EMAIL');
+      passwordController.text = localStorage.read('REMEMBER_ME_PASSWORD');
+      rememberMe.value = true;
+    }
+    super.onInit();
   }
 }

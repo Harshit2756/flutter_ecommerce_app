@@ -14,12 +14,12 @@ dependencies:
 
   # Utility Packages
   http: ^1.1.0
-  intl: ^0.19.0
+  intl: ^0.20.2
   logger: ^2.0.1
   shimmer: ^3.0.0
   image_picker: ^1.1.0
   url_launcher: ^6.1.12
-  image_cropper: ^5.0.1
+  image_cropper: ^9.0.0
   connectivity_plus: ^5.0.1
   cached_network_image: ^3.3.1
   flutter_native_splash: ^2.3.1
@@ -36,17 +36,16 @@ dependencies:
 
   # Product Specific
   readmore: ^3.0.0
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   flutter_rating_bar: ^4.0.1
 
   # Firebase
   # flutter_launch: ^0.3.0
-  firebase_core: ^2.29.0
-  firebase_auth: ^4.19.1
-  cloud_firestore: ^4.16.1
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
   google_sign_in: ^6.2.1
-  firebase_storage: ^11.7.2
-  # firebase_app_check: ^0.2.2+7
+  firebase_storage: ^12.3.3
 
   #--------------- ./ PACKAGES END ------------------#
 
@@ -54,8 +53,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^4.0.0
-  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
 
   #--------------- ./ DEV PACKAGES END ------------------#
 
