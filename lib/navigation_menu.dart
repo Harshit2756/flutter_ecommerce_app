@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'features/personalization/screens/settings/settings.dart';
+import 'features/shop/screens/Strore/strore.dart';
 import 'features/shop/screens/home/home.dart';
-import 'features/shop/screens/strore/strore.dart';
 import 'features/shop/screens/wishlist/wishlist.dart';
 import 'utils/helpers/helper_functions.dart';
 
