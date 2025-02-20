@@ -52,7 +52,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.29.0" #. Specify the Flutter version
+          flutter-version: "3.29.0"
           channel: "stable"
 
       - name: Install dependencies
@@ -322,7 +322,7 @@ jobs:
           import 'package:device_preview/device_preview.dart';
           import 'device_preview_button.dart';
 
-          #. Replace with your main imports
+
           import 'package:ecommerce_app/firebase_options.dart';
           import 'package:firebase_core/firebase_core.dart';
           import 'package:flutter/material.dart';
@@ -350,11 +350,11 @@ jobs:
 
             runApp(
               DevicePreview(
-                backgroundColor: Colors.white, #. change the color
+                backgroundColor: Colors.white, 
                 tools: const [
                   CustomPlugin(
-                    apkDownloadUrl: "https://github.com/${{ github.repository }}/releases/download/v1.0.0/app-release.apk", #. Dynamic APK download URL
-                    sourceCodeUrl: "https://github.com/${{ github.repository }}/archive/refs/tags/v1.0.0.zip", #. Dynamic source code URL
+                    apkDownloadUrl: "https://github.com/${{ github.repository }}/releases/download/v1.0.0/app-release.apk", 
+                    sourceCodeUrl: "https://github.com/${{ github.repository }}/archive/refs/tags/v1.0.0.zip", 
                   ),
                   DeviceSection(
                     frameVisibility: true,
@@ -389,14 +389,13 @@ jobs:
                   Devices.ios.iPhoneSE,
                 ],
                 enabled: true,
-                builder: (context) => const App(), #. replace your app file
+                builder: (context) => const App(), 
               ),
             );
           }
 
       - name: Build Web
-        run: flutter build web --base-href "/flutter_ecommerce_app/" #. Specify the base href
-
+        run: flutter build web --base-href "/flutter_ecommerce_app/"
       - name: Update docs directory
         run: |
           # Remove old docs and create new one
