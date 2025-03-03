@@ -62,7 +62,7 @@ jobs:
           flutter pub add device_preview
           flutter pub add device_preview_screenshot
           flutter pub add font_awesome_flutter
-          flutter pub get url_launcher
+          flutter pub add url_launcher
           flutter pub get
 
       - name: Update device_preview_button.dart for preview
