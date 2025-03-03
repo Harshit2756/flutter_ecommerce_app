@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ecommerce_app/common/widgets/login_signup/form_divider.dart';
 import 'package:ecommerce_app/common/widgets/login_signup/social_buttons.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/constants/text_strings.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'widget/signup_form.dart';
 
@@ -21,10 +21,7 @@ class SignupScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// Signup Title
-              Text(
-                HTexts.signupTitle,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+              Text(HTexts.signupTitle, style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: HSizes.defaultSpace),
 
               /// Signup Form

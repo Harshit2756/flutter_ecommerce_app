@@ -27,10 +27,6 @@ jobs:
     name: Build & Release
     runs-on: ubuntu-latest
 
-    env:
-      API_KEY: ${{ secrets.API_KEY }}
-      CONTEXT_KEY: ${{ secrets.CONTEXT_KEY }}
-
     steps:
       - uses: actions/checkout@v4
         with:
